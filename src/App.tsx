@@ -85,52 +85,68 @@ function App() {
       </header>
 
       {/* Cohort Section */}
-      <section className="bg-[#0c2340] text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-6">Crack Interviews & Build Products with Confidence</h2>
-            <p className="text-2xl mb-12 leading-relaxed">Learn the technical skills that set you apart. Master system design, APIs, data pipelines, and more in this hands-on cohort</p>
-            
-            <div className="flex flex-wrap justify-start gap-12 mb-12">
-              <div>
-                <h3 className="text-3xl font-bold mb-2">1st April, 2025</h3>
-                <p className="text-gray-300">4 weeks cohort</p>
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold mb-2">40</h3>
-                <p className="text-gray-300">seats available</p>
-              </div>
-            </div>
+   <section className="bg-[#2c2c2c] text-white py-16">
+  <div className="container mx-auto px-6">
+    <div className="max-w-4xl mx-auto text-center">
+      {/* Heading */}
+      <h2 className="text-5xl font-extrabold mb-6 text-white">
+        Crack Interviews & Build Products with <span className="text-red-500">Confidence</span>
+      </h2>
+      
+      {/* Description */}
+      <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+        Learn the technical skills that set you apart. Master system design, APIs, data pipelines, 
+        and more in this hands-on cohort.
+      </p>
 
-            <div className="flex flex-col gap-4">
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfD6sRvW6NhUqbZn4JTsqPH5_p2DdRBn65SdatbxFCrfGApxw/viewform" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-[#4a90e2] text-white px-8 py-4 rounded-lg text-center text-lg font-semibold hover:bg-[#357abd] transition-colors"
-              >
-                Apply for the Cohort Now!
-              </a>
-              <a 
-                href="https://drive.google.com/file/d/1PvTJKGmCG91HdpE9eipHrDzznwPcNFlg/view?usp=sharing" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-center text-lg font-semibold hover:bg-white hover:text-[#0c2340] transition-colors"
-              >
-                Download Curriculum
-              </a>
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfIawc05rGI7vDBGY-BF7BAHP_bTve8QmBbstaByX0JacBwRw/viewform" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-[#dc3545] text-white px-8 py-4 rounded-lg text-center text-lg font-semibold hover:bg-[#c82333] transition-colors"
-              >
-                Avail a Free Demo!
-              </a>
-            </div>
-          </div>
+      {/* Details Section */}
+      <div className="flex justify-center gap-16 mb-12">
+        <div className="text-center">
+          <h3 className="text-4xl font-bold text-white mb-2">1st April, 2025</h3>
+          <p className="text-gray-400 text-lg">4 weeks cohort</p>
         </div>
-      </section>
+        <div className="text-center">
+          <h3 className="text-4xl font-bold text-white mb-2">40</h3>
+          <p className="text-gray-400 text-lg">Seats Available</p>
+        </div>
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-col gap-4 items-center">
+        {/* Apply Now Button */}
+        <a 
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfD6sRvW6NhUqbZn4JTsqPH5_p2DdRBn65SdatbxFCrfGApxw/viewform" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-10 py-4 rounded-lg text-lg font-semibold hover:opacity-90 transition duration-300 w-full max-w-md text-center"
+        >
+          Apply for the Cohort Now!
+        </a>
+
+        {/* Download Curriculum */}
+        <a 
+          href="https://drive.google.com/file/d/1PvTJKGmCG91HdpE9eipHrDzznwPcNFlg/view?usp=sharing" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-transparent border-2 border-gray-400 text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-gray-600 transition duration-300 w-full max-w-md text-center"
+        >
+          Download Curriculum
+        </a>
+
+        {/* Free Demo */}
+        <a 
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfIawc05rGI7vDBGY-BF7BAHP_bTve8QmBbstaByX0JacBwRw/viewform" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-red-500 text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-red-400 transition duration-300 w-full max-w-md text-center"
+        >
+          Avail a Free Demo!
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Meet the Mentor Section */}
       <section className="py-20 bg-white">
