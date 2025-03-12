@@ -21,14 +21,18 @@ function App() {
               className="h-24 w-auto ml-8"
             />
             <div className="flex items-center gap-6 mr-8">
-              <a 
-                href="https://www.linkedin.com/company/theproductsprints/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-gray-300 transition-colors"
-              >
-                <Linkedin className="w-6 h-6" />
-              </a>
+             <a 
+  href="https://www.linkedin.com/company/theproductsprints/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img 
+    src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
+    alt="LinkedIn" 
+    className="w-6 h-6"
+  />
+</a>
+
               <a 
                 href="#blogs-section" 
                 onClick={scrollToBlogs}
