@@ -405,9 +405,10 @@ function App() {
                   href="https://www.linkedin.com/company/theproductsprints/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors transform hover:scale-105 duration-300"
-                >
-                  <Linkedin className="w-6 h-6" />
+                 <img 
+    src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
+    alt="LinkedIn" 
+    className="w-6 h-6"
                   <span>Follow us on LinkedIn</span>
                 </a>
                 <div className="flex items-center gap-2 text-gray-300">
