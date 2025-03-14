@@ -401,14 +401,15 @@ function App() {
             <div className="flex flex-col items-center justify-center gap-6 mb-8">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Contact Us</h3>
               <div className="flex items-center gap-8">
-               <a href="https://www.linkedin.com/company/theproductsprints/" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
-       alt="LinkedIn" 
-       class="w-6 h-6">
-  <span>Follow us on LinkedIn</span>
-</a>
+              <a 
+                  href="https://www.linkedin.com/company/theproductsprints/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors transform hover:scale-105 duration-300"
+                >
+                  <Linkedin className="w-6 h-6" />
+                  <span>Follow us on LinkedIn</span>
+                </a>
 
                 <div className="flex items-center gap-2 text-gray-300">
                   <Phone className="w-6 h-6" />
