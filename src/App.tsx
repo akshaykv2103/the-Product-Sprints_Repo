@@ -12,8 +12,15 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <nav className="bg-[#1a1a1a] py-4">
-        <div className="container mx-auto px-4">
+      <nav className="relative bg-[#1a1a1a] py-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 animate-pulse"></div>
+        
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-10 right-10 w-48 h-48 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative">
           <div className="flex items-center justify-between">
             <img 
               src="/images/logo.png"
@@ -260,7 +267,7 @@ function App() {
 
                 <div className="flex items-center justify-between">
                   <div className="transform hover:translate-x-2 transition-transform duration-300">
-                    <h4 className="font-semibold text-gray-900">Akshay K. Verma</h4>
+                    <h4 className="font-semibold text-gray-900">Akshay K. Verma (IIT Kanpur)</h4>
                     <p className="text-sm bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium">
                       Product Manager, HDFC Securities
                     </p>
@@ -343,76 +350,34 @@ function App() {
         </div>
       </section>
 
-      <section className="bg-[#f5f5f5] py-20 relative overflow-hidden">
+      <footer className="relative bg-[#1a1a1a] text-white py-12 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 animate-pulse"></div>
+        
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
+          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
         </div>
+
         <div className="container mx-auto px-4 relative">
-          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Why Join The Product Sprints?</h2>
-          <div className="max-w-2xl mx-auto">
-            <div className="flex items-start space-x-4 mb-6 transform hover:scale-105 transition-all duration-300">
-              <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Real-world Product Experience</h3>
-                <p className="text-gray-600">Learn from practitioners who've built successful products at leading companies</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4 mb-6 transform hover:scale-105 transition-all duration-300">
-              <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Structured Learning Path</h3>
-                <p className="text-gray-600">Follow a proven curriculum designed to accelerate your product management career</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4 transform hover:scale-105 transition-all duration-300">
-              <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Supportive Community</h3>
-                <p className="text-gray-600">Connect with peers who share your passion for product development</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
-        </div>
-        <div className="container mx-auto px-4 text-center relative">
-          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Ready to Level Up Your Product Career?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join The Product Sprints today and get access to our community of product leaders, exclusive resources, and networking opportunities.</p>
-          <a 
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfD6sRvW6NhUqbZn4JTsqPH5_p2DdRBn65SdatbxFCrfGApxw/viewform" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 duration-300 shadow-lg hover:shadow-xl inline-flex items-center mx-auto"
-          >
-            Get Started <ArrowRight className="ml-2 w-5 h-5" />
-          </a>
-        </div>
-      </section>
-
-      <footer className="bg-[#1a1a1a] text-white py-12">
-        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col items-center justify-center gap-6 mb-8">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Contact Us</h3>
+              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-white animate-gradient">Contact Us</h3>
               <div className="flex items-center gap-8">
-              <a 
+                <a 
                   href="https://www.linkedin.com/company/theproductsprints/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors transform hover:scale-105 duration-300"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors transform hover:scale-105 duration-300 group"
                 >
-                  <Linkedin className="w-6 h-6" />
+                  <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-2 rounded-full group-hover:from-purple-500/20 group-hover:to-pink-500/20">
+                    <Linkedin className="w-6 h-6" />
+                  </div>
                   <span>Follow us on LinkedIn</span>
                 </a>
-
-                <div className="flex items-center gap-2 text-gray-300">
-                  <Phone className="w-6 h-6" />
+                <div className="flex items-center gap-2 text-gray-300 group">
+                  <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-2 rounded-full group-hover:from-purple-500/20 group-hover:to-pink-500/20">
+                    <Phone className="w-6 h-6" />
+                  </div>
                   <span>+91 8318023406</span>
                 </div>
               </div>
