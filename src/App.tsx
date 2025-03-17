@@ -21,13 +21,13 @@ function App() {
         </div>
 
         <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between items-center gap-6 md:gap-0">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
             <img 
               src="/images/logo.png"
               alt="The Product Sprints Logo" 
-              className="h-20 md:h-24 w-auto md:ml-8"
+              className="h-20 md:h-24 w-auto"
             />
-            <div className="flex flex-col md:flex-row items-center gap-6 md:mr-8">
+            <div className="flex items-center gap-4 md:gap-6">
               <a 
                 href="https://www.linkedin.com/company/theproductsprints/"
                 target="_blank"
@@ -51,7 +51,7 @@ function App() {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfD6sRvW6NhUqbZn4JTsqPH5_p2DdRBn65SdatbxFCrfGApxw/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
+                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 md:px-6 py-2 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 duration-300 shadow-lg hover:shadow-xl whitespace-nowrap text-sm md:text-base"
               >
                 Apply for Cohort
               </a>
@@ -267,13 +267,13 @@ function App() {
 
                 <div className="flex items-center justify-between">
                   <div className="transform hover:translate-x-2 transition-transform duration-300">
-                    <h4 className="font-semibold text-gray-900">Akshay K. Verma</h4>
+                    <h4 className="font-semibold text-gray-900">Akshay K. Verma, IIT Kanpur</h4>
                     <p className="text-sm bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium">
                       Product Manager, HDFC Securities
                     </p>
                   </div>
                   <a
-                    href="linkedin.com/in/akshay-kumar-verma-326b03202"
+                    href="https://www.linkedin.com/in/akshay-kumar-verma-326b03202"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
