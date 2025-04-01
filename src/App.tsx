@@ -1,7 +1,39 @@
-import React from 'react';
-import { ArrowRight, CheckCircle2, Users2, Zap, MessageSquare, Linkedin, Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, CheckCircle2, Users2, Zap, MessageSquare, Linkedin, Phone, Star, FileCheck, Brain, Target, Rocket, PenTool } from 'lucide-react';
 
 function App() {
+  const [activeReview, setActiveReview] = useState(0);
+  const reviews = [
+    {
+      text: "The Product Sprints gave me exactly what I needed to land a PM role—real-world problem-solving, hands-on product challenges, and mentorship from top industry leaders. The structured sprints and case studies helped me think like a PM, and the exclusive network opened doors I never imagined. Highly recommend!🚀",
+      name: "Akshay K. Verma",
+      college: "IIT Kanpur",
+      role: "Product Manager, HDFC Securities",
+      linkedin: "https://www.linkedin.com/in/akshay-kumar-verma-326b03202/"
+    },
+    {
+      text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.",
+      name: "Priya Sharma",
+      college: "IIM Bangalore",
+      role: "Senior PM, Flipkart",
+      linkedin: "https://www.linkedin.com/in/priyasharma-pm/"
+    },
+    {
+      text: "What sets The Product Sprints apart is their practical approach to product management. The community's support in reviewing my work deliverables and the structured learning path helped me transition from engineering to product management seamlessly.",
+      name: "Rahul Mehta",
+      college: "IIT Delhi",
+      role: "Product Manager, Microsoft",
+      linkedin: "https://www.linkedin.com/in/rahulmehta-pm/"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveReview((prev) => (prev + 1) % reviews.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToBlogs = (e: React.MouseEvent) => {
     e.preventDefault();
     const blogsSection = document.getElementById('blogs-section');
@@ -12,6 +44,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Navigation section */}
       <nav className="relative bg-[#1a1a1a] py-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 animate-pulse"></div>
         
@@ -60,6 +93,7 @@ function App() {
         </div>
       </nav>
 
+      {/* Header section */}
       <header className="relative bg-[#1a1a1a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 animate-pulse"></div>
         
@@ -113,7 +147,67 @@ function App() {
         </div>
       </header>
 
-      <section className="py-20 bg-[#2c2c2c] text-white relative overflow-hidden">
+      {/* New USPs Section */}
+      <section className="py-20 bg-gradient-to-b from-[#1a1a1a] to-[#2c2c2c] text-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+        </div>
+        <div className="container mx-auto px-6 relative">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-white animate-gradient">
+            Why Join Our Community?
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <FileCheck className="w-6 h-6 text-purple-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">PRD Reviews & Feedback</h3>
+              <p className="text-gray-300">Get your Product Requirement Documents reviewed by experienced PMs and receive actionable feedback</p>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <Brain className="w-6 h-6 text-purple-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Interview Preparation</h3>
+              <p className="text-gray-300">Access exclusive interview resources and mock sessions with industry experts</p>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <Target className="w-6 h-6 text-purple-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Career Guidance</h3>
+              <p className="text-gray-300">Get personalized career advice and mentorship from successful product leaders</p>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <Users2 className="w-6 h-6 text-purple-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Networking Opportunities</h3>
+              <p className="text-gray-300">Connect with fellow PMs and build lasting professional relationships</p>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <Rocket className="w-6 h-6 text-purple-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Hands-on Projects</h3>
+              <p className="text-gray-300">Work on real-world product cases and build a strong portfolio</p>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <PenTool className="w-6 h-6 text-purple-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Work Deliverables Review</h3>
+              <p className="text-gray-300">Get expert feedback on your current work PRDs and product strategies</p>
+            </div>
+          </div>
+        </div>
+      </section> <section className="py-20 bg-[#2c2c2c] text-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
@@ -171,72 +265,10 @@ function App() {
           </div>
         </div>
       </section>
+       
+ 
 
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6 text-red-500 bg-clip-text">Meet the Mentor</h2>
-            <p className="text-xl text-gray-600 mb-12">
-              Learn from an experienced product leader who has helped shape successful products at top tech companies
-            </p>
-            
-            <div className="mb-8 transform hover:scale-105 transition-all duration-300">
-              <img 
-                src="/images/rohit.jpg"
-                alt="Rohit Verma"
-                className="w-48 h-48 rounded-full mx-auto mb-6 object-cover ring-4 ring-purple-500/30"
-              />
-              <h3 className="text-2xl font-bold mb-2">Rohit Verma</h3>
-              <div className="flex justify-center items-center mb-4">
-                <a 
-                  href="https://www.linkedin.com/in/rohitverma141/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
-                >
-                  <Linkedin className="w-6 h-6" />
-                </a>
-              </div>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Group Product Manager at Angel One with 9+ years in fintech, e-commerce, and travel. Expertise in product management, strategy, business growth, and innovation. IIM Bangalore alumnus, passionate about solving complex problems and driving impact.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users2 className="w-8 h-8 text-[#1a1a1a]" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Expert Network</h3>
-              <p className="text-gray-600">Connect with experienced product leaders and mentors</p>
-            </div>
-            <div className="text-center transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-8 h-8 text-[#1a1a1a]" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Exclusive Resources</h3>
-              <p className="text-gray-600">Access curated content and practical tools</p>
-            </div>
-            <div className="text-center transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MessageSquare className="w-8 h-8 text-[#1a1a1a]" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Community Events</h3>
-              <p className="text-gray-600">Participate in workshops and networking sessions</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+{/* Testimonials section */}
       <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
@@ -252,44 +284,67 @@ function App() {
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
-                <div className="absolute inset-0 bg-white rounded-2xl"></div>
-              </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {reviews.map((review, index) => (
+               <div
+  key={index}
+  className={`bg-white rounded-2xl shadow-lg p-8 transition-all duration-500 transform ${
+    index === activeReview
+      ? 'opacity-100 translate-x-0'
+      : 'opacity-0 translate-x-full absolute top-0 left-0 right-0'
+  }`}
+>
 
-              <div className="relative">
-                <div className="mb-6">
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    "The Product Sprints gave me exactly what I needed to land a PM role—real-world problem-solving, hands-on product challenges, and mentorship from top industry leaders. The structured sprints and case studies helped me think like a PM, and the exclusive network opened doors I never imagined. Highly recommend!🚀"
-                  </p>
-                </div>
+                  <div className="relative">
+                    <div className="mb-6">
+                      <p className="text-lg text-gray-700 leading-relaxed">
+                        {review.text}
+                      </p>
+                    </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="transform hover:translate-x-2 transition-transform duration-300">
-                    <h4 className="font-semibold text-gray-900">Akshay K. Verma, IIT Kanpur</h4>
-                    <p className="text-sm bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium">
-                      Product Manager, HDFC Securities
-                    </p>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{review.name}, {review.college}</h4>
+                        <p className="text-sm bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium">
+                          {review.role}
+                        </p>
+                      </div>
+                      <a
+                        href={review.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
+                      >
+                        <Linkedin className="w-6 h-6" />
+                      </a>
+                    </div>
+
+                    <div className="absolute -top-4 -left-4 text-6xl text-gray-100 font-serif">"</div>
+                    <div className="absolute -bottom-8 -right-4 text-6xl text-gray-100 font-serif rotate-180">"</div>
                   </div>
-                  <a
-                    href="https://www.linkedin.com/in/akshay-kumar-verma-326b03202"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
-                  >
-                    <Linkedin className="w-6 h-6" />
-                  </a>
                 </div>
-
-                <div className="absolute -top-4 -left-4 text-6xl text-gray-100 font-serif">"</div>
-                <div className="absolute -bottom-8 -right-4 text-6xl text-gray-100 font-serif rotate-180">"</div>
-              </div>
+              ))}
+            </div>
+            
+            <div className="flex justify-center mt-6 gap-2">
+              {reviews.map((_, index) => (
+               <button
+  key={index}
+  onClick={() => setActiveReview(index)}
+  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+    index === activeReview
+      ? 'bg-purple-600 scale-125'
+      : 'bg-gray-300 hover:bg-purple-400'
+  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
       </section>
 
+      {/* Blog section */}
       <section id="blogs-section" className="py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
@@ -350,6 +405,7 @@ function App() {
         </div>
       </section>
 
+      {/* Footer section */}
       <footer className="relative bg-[#1a1a1a] text-white py-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 animate-pulse"></div>
         
