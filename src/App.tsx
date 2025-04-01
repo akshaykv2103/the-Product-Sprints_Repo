@@ -265,8 +265,43 @@ function App() {
           </div>
         </div>
       </section>
-       
- 
+
+<section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
+        </div>
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6 text-red-500 bg-clip-text">Meet the Mentor</h2>
+            <p className="text-xl text-gray-600 mb-12">
+              Learn from an experienced product leader who has helped shape successful products at top tech companies
+            </p>
+            
+            <div className="mb-8 transform hover:scale-105 transition-all duration-300">
+              <img 
+                src="/images/rohit.jpg"
+                alt="Rohit Verma"
+                className="w-48 h-48 rounded-full mx-auto mb-6 object-cover ring-4 ring-purple-500/30"
+              />
+              <h3 className="text-2xl font-bold mb-2">Rohit Verma</h3>
+              <div className="flex justify-center items-center mb-4">
+                <a 
+                  href="https://www.linkedin.com/in/rohitverma141/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
+                >
+                  <Linkedin className="w-6 h-6" />
+                </a>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Group Product Manager at Angel One with 9+ years in fintech, e-commerce, and travel. Expertise in product management, strategy, business growth, and innovation. IIM Bangalore alumnus, passionate about solving complex problems and driving impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
 {/* Testimonials section */}
       <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
