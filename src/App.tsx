@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle2, Users2, Zap, MessageSquare, Linkedin, Phone, Star, FileCheck, Brain, Target, Rocket, PenTool } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Users2, Zap, MessageSquare, Linkedin, Phone, Star, FileCheck, Brain, Target, Rocket, PenTool, BookOpen, Trophy, Sparkles, GraduationCap } from 'lucide-react';
 
 function App() {
   const [activeReview, setActiveReview] = useState(0);
@@ -9,21 +9,24 @@ function App() {
       name: "Akshay K. Verma",
       college: "IIT Kanpur",
       role: "Product Manager, HDFC Securities",
-      linkedin: "https://www.linkedin.com/in/akshay-kumar-verma-326b03202/"
+      linkedin: "https://www.linkedin.com/in/akshay-kumar-verma-326b03202/",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
     },
     {
       text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.",
       name: "Priya Sharma",
       college: "IIM Bangalore",
       role: "Senior PM, Flipkart",
-      linkedin: "https://www.linkedin.com/in/priyasharma-pm/"
+      linkedin: "https://www.linkedin.com/in/priyasharma-pm/",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
     },
     {
       text: "What sets The Product Sprints apart is their practical approach to product management. The community's support in reviewing my work deliverables and the structured learning path helped me transition from engineering to product management seamlessly.",
       name: "Rahul Mehta",
       college: "IIT Delhi",
       role: "Product Manager, Microsoft",
-      linkedin: "https://www.linkedin.com/in/rahulmehta-pm/"
+      linkedin: "https://www.linkedin.com/in/rahulmehta-pm/",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
     }
   ];
 
@@ -93,13 +96,19 @@ function App() {
         </div>
       </nav>
 
-      {/* Header section */}
+      {/* Header section with enhanced design elements */}
       <header className="relative bg-[#1a1a1a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 animate-pulse"></div>
         
+        {/* Enhanced geometric patterns */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+          {/* Added subtle geometric shapes */}
+          <div className="absolute top-40 left-0 w-24 h-24 border-2 border-purple-500/10 rotate-45"></div>
+          <div className="absolute bottom-40 right-0 w-32 h-32 border-2 border-pink-500/10 rounded-full"></div>
+          <div className="absolute top-1/2 left-10 w-16 h-16 bg-gradient-to-br from-purple-500/5 to-transparent rotate-12"></div>
+          <div className="absolute top-1/3 right-10 w-20 h-20 bg-gradient-to-bl from-pink-500/5 to-transparent -rotate-12"></div>
         </div>
 
         <div className="relative py-20">
@@ -146,8 +155,7 @@ function App() {
           </div>
         </div>
       </header>
-
-      {/* New USPs Section */}
+ {/* New USPs Section */}
       <section className="py-20 bg-gradient-to-b from-[#1a1a1a] to-[#2c2c2c] text-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
@@ -265,49 +273,77 @@ function App() {
           </div>
         </div>
       </section>
-
-<section className="py-20 bg-white relative overflow-hidden">
+      {/* Enhanced Meet the Mentor section */}
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
+          {/* Added decorative elements */}
+          <div className="absolute top-1/4 left-10 w-20 h-20 border-2 border-purple-500/10 rotate-45"></div>
+          <div className="absolute bottom-1/4 right-10 w-16 h-16 border-2 border-pink-500/10 rounded-full"></div>
         </div>
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6 text-red-500 bg-clip-text">Meet the Mentor</h2>
-            <p className="text-xl text-gray-600 mb-12">
-              Learn from an experienced product leader who has helped shape successful products at top tech companies
-            </p>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-6 text-red-500 bg-clip-text inline-block">
+                Meet Your Mentor
+              </h2>
+              <div className="h-1 w-20 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+            </div>
             
-            <div className="mb-8 transform hover:scale-105 transition-all duration-300">
-              <img 
-                src="/images/rohit.jpg"
-                alt="Rohit Verma"
-                className="w-48 h-48 rounded-full mx-auto mb-6 object-cover ring-4 ring-purple-500/30"
-              />
-              <h3 className="text-2xl font-bold mb-2">Rohit Verma</h3>
-              <div className="flex justify-center items-center mb-4">
-                <a 
-                  href="https://www.linkedin.com/in/rohitverma141/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
-                >
-                  <Linkedin className="w-6 h-6" />
-                </a>
+            <div className="flex flex-col md:flex-row items-center gap-12 bg-gradient-to-r from-purple-50 to-pink-50 rounded-3xl p-8 shadow-xl">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-md animate-pulse"></div>
+                <img 
+                  src="/images/rohit.jpg"
+                  alt="Rohit Verma"
+                  className="w-64 h-64 rounded-full object-cover relative z-10 ring-4 ring-white"
+                />
+                <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full p-4 shadow-lg">
+                  <Star className="w-6 h-6 text-white" />
+                </div>
               </div>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Group Product Manager at Angel One with 9+ years in fintech, e-commerce, and travel. Expertise in product management, strategy, business growth, and innovation. IIM Bangalore alumnus, passionate about solving complex problems and driving impact.
-              </p>
+              
+              <div className="flex-1 md:text-left text-center">
+                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Rohit Verma</h3>
+                <div className="flex items-center gap-4 mb-6 justify-center md:justify-start">
+                  <span className="bg-gradient-to-r from-purple-100 to-pink-100 px-4 py-1 rounded-full text-purple-700 font-medium">Group Product Manager</span>
+                  <a 
+                    href="https://www.linkedin.com/in/rohitverma141/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
+                </div>
+                <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                  Group Product Manager at Angel One with 9+ years in fintech, e-commerce, and travel. Expertise in product management, strategy, business growth, and innovation. IIM Bangalore alumnus, passionate about solving complex problems and driving impact.
+                </p>
+                <div className="grid grid-cols-2 gap-4 max-w-md mx-auto md:mx-0">
+                  <div className="bg-white p-4 rounded-xl shadow-md">
+                    <h4 className="font-bold text-purple-600">9+ Years</h4>
+                    <p className="text-gray-600">Industry Experience</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl shadow-md">
+                    <h4 className="font-bold text-pink-600">500+</h4>
+                    <p className="text-gray-600">Students Mentored</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-{/* Testimonials section */}
+      {/* Enhanced Testimonials section */}
       <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
+          {/* Added decorative elements */}
+          <div className="absolute top-1/3 left-5 w-24 h-24 border-2 border-purple-500/10 rotate-12"></div>
+          <div className="absolute bottom-1/3 right-5 w-20 h-20 border-2 border-pink-500/10 rounded-full"></div>
         </div>
 
         <div className="container mx-auto px-4 relative">
@@ -317,61 +353,70 @@ function App() {
                 Aspiring Product Managers <span className="text-red-500">♥</span> The Product Sprints
               </h2>
             </div>
+            <div className="h-1 w-20 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full mt-6"></div>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {reviews.map((review, index) => (
-               <div
-  key={index}
-  className={`bg-white rounded-2xl shadow-lg p-8 transition-all duration-500 transform ${
-    index === activeReview
-      ? 'opacity-100 translate-x-0'
-      : 'opacity-0 translate-x-full absolute top-0 left-0 right-0'
-  }`}
->
-
+                <div
+                  key={index}
+                  className={`bg-white rounded-2xl shadow-lg p-8 transition-all duration-500 transform ${
+                    index === activeReview
+                      ? 'opacity-100 translate-x-0'
+                      : 'opacity-0 translate-x-full absolute top-0 left-0 right-0'
+                  }`}
+                >
                   <div className="relative">
-                    <div className="mb-6">
-                      <p className="text-lg text-gray-700 leading-relaxed">
+                    <div className="absolute -top-4 -left-4 text-6xl text-purple-100 font-serif z-0">"</div>
+                    <div className="absolute -bottom-4 -right-4 text-6xl text-pink-100 font-serif rotate-180 z-0">"</div>
+                    
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-6 mb-6">
+                        <img
+                          src={review.image}
+                          alt={review.name}
+                          className="w-16 h-16 rounded-full object-cover ring-4 ring-purple-100"
+                        />
+                        <div>
+                          <h4 className="font-semibold text-gray-900">{review.name}</h4>
+                          <p className="text-sm text-gray-600">{review.college}</p>
+                          <p className="text-sm bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium">
+                            {review.role}
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-lg text-gray-700 leading-relaxed mb-6">
                         {review.text}
                       </p>
-                    </div>
 
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-semibold text-gray-900">{review.name}, {review.college}</h4>
-                        <p className="text-sm bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium">
-                          {review.role}
-                        </p>
+                      <div className="flex justify-end">
+                        <a
+                          href={review.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
+                        >
+                          <Linkedin className="w-6 h-6" />
+                        </a>
                       </div>
-                      <a
-                        href={review.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#0077b5] hover:text-[#00669c] transition-colors transform hover:scale-110 duration-300"
-                      >
-                        <Linkedin className="w-6 h-6" />
-                      </a>
                     </div>
-
-                    <div className="absolute -top-4 -left-4 text-6xl text-gray-100 font-serif">"</div>
-                    <div className="absolute -bottom-8 -right-4 text-6xl text-gray-100 font-serif rotate-180">"</div>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="flex justify-center mt-6 gap-2">
+            <div className="flex justify-center mt-8 gap-3">
               {reviews.map((_, index) => (
-               <button
-  key={index}
-  onClick={() => setActiveReview(index)}
-  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-    index === activeReview
-      ? 'bg-purple-600 scale-125'
-      : 'bg-gray-300 hover:bg-purple-400'
-  }`}
+                <button
+                  key={index}
+                  onClick={() => setActiveReview(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === activeReview
+                      ? 'bg-purple-600 scale-125'
+                      : 'bg-gray-300 hover:bg-purple-400'
+                  }`}
                 />
               ))}
             </div>
