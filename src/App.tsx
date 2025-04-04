@@ -14,10 +14,10 @@ function App() {
     },
     {
       text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.",
-      name: "Muskan Goel",
-      college: "IIT Roorkee",
-      role: "PM, Tata1mg",
-      linkedin: "linkedin.com/in/-muskan-goel24",
+      name: "Priya Sharma",
+      college: "IIM Bangalore",
+      role: "Senior PM, Flipkart",
+      linkedin: "https://www.linkedin.com/in/priyasharma-pm/",
       
     },
     {
