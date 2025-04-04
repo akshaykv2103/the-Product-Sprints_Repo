@@ -10,15 +10,15 @@ function App() {
       college: "IIT Kanpur",
       role: "Product Manager, HDFC Securities",
       linkedin: "https://www.linkedin.com/in/akshay-kumar-verma-326b03202/",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+     
     },
     {
       text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.",
-      name: "Priya Sharma",
-      college: "IIM Bangalore",
-      role: "Senior PM, Flipkart",
-      linkedin: "https://www.linkedin.com/in/priyasharma-pm/",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+      name: "Muskan Goel",
+      college: "IIT Roorkee",
+      role: "PM, Tata1mg",
+      linkedin: "linkedin.com/in/-muskan-goel24",
+      
     },
     {
       text: "What sets The Product Sprints apart is their practical approach to product management. The community's support in reviewing my work deliverables and the structured learning path helped me transition from engineering to product management seamlessly.",
@@ -26,7 +26,7 @@ function App() {
       college: "IIT Delhi",
       role: "Product Manager, Microsoft",
       linkedin: "https://www.linkedin.com/in/rahulmehta-pm/",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+   
     }
   ];
 
@@ -373,11 +373,7 @@ function App() {
                     
                     <div className="relative z-10">
                       <div className="flex items-center gap-6 mb-6">
-                        <img
-                          src={review.image}
-                          alt={review.name}
-                          className="w-16 h-16 rounded-full object-cover ring-4 ring-purple-100"
-                        />
+                       
                         <div>
                           <h4 className="font-semibold text-gray-900">{review.name}</h4>
                           <p className="text-sm text-gray-600">{review.college}</p>
