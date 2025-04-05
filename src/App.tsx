@@ -1,8 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, CheckCircle2, Users2, Zap, MessageSquare, Linkedin, Phone, Star, FileCheck, Brain, Target, Rocket, PenTool, BookOpen, Trophy, Sparkles, GraduationCap } from 'lucide-react';
 
 function App() {
   const [activeReview, setActiveReview] = useState(0);
+  const cardRefs = useRef([]);
+  const [visibleCards, setVisibleCards] = useState(new Set());
+
+  const uspItems = [
+    {
+      title: "Identify the levers to growth",
+      description: "Identify the input levers to the north star & build the growth equation. Understand the nuke scenario for your goal & how far retention alone can solve growth.",
+      icon: Target,
+    },
+    {
+      title: "Convincing stakeholders",
+      description: "Learn to go from looking at metrics in isolation, to going a level deeper & seeing them as a connected system. Build true conviction & defend strategic decisions.",
+      icon: Users2,
+    },
+    {
+      title: "Building growth models",
+      description: "Master the art of creating comprehensive growth models that drive product success. Learn to identify and leverage key metrics that matter.",
+      icon: Rocket,
+    },
+    {
+      title: "Strategic thinking",
+      description: "Develop the ability to think strategically about product growth and make data-driven decisions that impact business outcomes.",
+      icon: Brain,
+    },
+    {
+      title: "Hands-on execution",
+      description: "Get practical experience in implementing growth strategies and measuring their impact through real-world case studies.",
+      icon: PenTool,
+    },
+    {
+      title: "Leadership skills",
+      description: "Build the confidence and capabilities needed to lead product teams and drive organizational growth initiatives.",
+      icon: Star,
+    }
+  ];
+
   const reviews = [
     {
       text: "The Product Sprints gave me exactly what I needed to land a PM role—real-world problem-solving, hands-on product challenges, and mentorship from top industry leaders. The structured sprints and case studies helped me think like a PM, and the exclusive network opened doors I never imagined. Highly recommend!🚀",
@@ -10,7 +46,6 @@ function App() {
       college: "IIT Kanpur",
       role: "Product Manager, HDFC Securities",
       linkedin: "https://www.linkedin.com/in/akshay-kumar-verma-326b03202/",
-     
     },
     {
       text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.",
@@ -18,7 +53,6 @@ function App() {
       college: "IIM Bangalore",
       role: "Senior PM, Flipkart",
       linkedin: "https://www.linkedin.com/in/priyasharma-pm/",
-      
     },
     {
       text: "What sets The Product Sprints apart is their practical approach to product management. The community's support in reviewing my work deliverables and the structured learning path helped me transition from engineering to product management seamlessly.",
@@ -26,9 +60,27 @@ function App() {
       college: "IIT Delhi",
       role: "Product Manager, Microsoft",
       linkedin: "https://www.linkedin.com/in/rahulmehta-pm/",
-   
     }
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleCards(prev => new Set([...prev, entry.target.dataset.index]));
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -96,15 +148,13 @@ function App() {
         </div>
       </nav>
 
-      {/* Header section with enhanced design elements */}
+      {/* Header section */}
       <header className="relative bg-[#1a1a1a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 animate-pulse"></div>
         
-        {/* Enhanced geometric patterns */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
-          {/* Added subtle geometric shapes */}
           <div className="absolute top-40 left-0 w-24 h-24 border-2 border-purple-500/10 rotate-45"></div>
           <div className="absolute bottom-40 right-0 w-32 h-32 border-2 border-pink-500/10 rounded-full"></div>
           <div className="absolute top-1/2 left-10 w-16 h-16 bg-gradient-to-br from-purple-500/5 to-transparent rotate-12"></div>
@@ -155,67 +205,45 @@ function App() {
           </div>
         </div>
       </header>
- {/* New USPs Section */}
-      <section className="py-20 bg-gradient-to-b from-[#1a1a1a] to-[#2c2c2c] text-white relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
-        </div>
+
+      {/* Outcomes section */}
+      <section className="py-20 bg-[#1a1a1a] text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 animate-pulse"></div>
+        
         <div className="container mx-auto px-6 relative">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-white animate-gradient">
-            Why Join Our Community?
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <FileCheck className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">PRD Reviews & Feedback</h3>
-              <p className="text-gray-300">Get your Product Requirement Documents reviewed by experienced PMs and receive actionable feedback</p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <Brain className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Interview Preparation</h3>
-              <p className="text-gray-300">Access exclusive interview resources and mock sessions with industry experts</p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <Target className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Career Guidance</h3>
-              <p className="text-gray-300">Get personalized career advice and mentorship from successful product leaders</p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <Users2 className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Networking Opportunities</h3>
-              <p className="text-gray-300">Connect with fellow PMs and build lasting professional relationships</p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <Rocket className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Hands-on Projects</h3>
-              <p className="text-gray-300">Work on real-world product cases and build a strong portfolio</p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <PenTool className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Work Deliverables Review</h3>
-              <p className="text-gray-300">Get expert feedback on your current work PRDs and product strategies</p>
+          <h2 className="text-2xl font-semibold mb-16 text-center">OUTCOMES YOU'LL GET</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="space-y-32">
+              {uspItems.map((item, index) => (
+                <div
+                  key={index}
+                  ref={el => cardRefs.current[index] = el}
+                  data-index={index}
+                  className={`transform transition-all duration-1000 ${
+                    visibleCards.has(index.toString())
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-32'
+                  }`}
+                >
+                  <div className="flex flex-col items-start">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center">
+                        <item.icon className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    <h3 className="text-4xl font-bold mb-4">{item.title}</h3>
+                    <p className="text-xl text-gray-400 max-w-2xl">{item.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </section> <section className="py-20 bg-[#2c2c2c] text-white relative overflow-hidden">
+      </section>
+
+      {/* Cohort Details section */}
+      <section className="py-20 bg-[#2c2c2c] text-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
@@ -273,12 +301,12 @@ function App() {
           </div>
         </div>
       </section>
-      {/* Enhanced Meet the Mentor section */}
+
+      {/* Meet the Mentor section */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
-          {/* Added decorative elements */}
           <div className="absolute top-1/4 left-10 w-20 h-20 border-2 border-purple-500/10 rotate-45"></div>
           <div className="absolute bottom-1/4 right-10 w-16 h-16 border-2 border-pink-500/10 rounded-full"></div>
         </div>
@@ -336,12 +364,11 @@ function App() {
         </div>
       </section>
 
-      {/* Enhanced Testimonials section */}
+      {/* Testimonials section */}
       <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl animate-float-delayed"></div>
-          {/* Added decorative elements */}
           <div className="absolute top-1/3 left-5 w-24 h-24 border-2 border-purple-500/10 rotate-12"></div>
           <div className="absolute bottom-1/3 right-5 w-20 h-20 border-2 border-pink-500/10 rounded-full"></div>
         </div>
@@ -373,7 +400,6 @@ function App() {
                     
                     <div className="relative z-10">
                       <div className="flex items-center gap-6 mb-6">
-                       
                         <div>
                           <h4 className="font-semibold text-gray-900">{review.name}</h4>
                           <p className="text-sm text-gray-600">{review.college}</p>
@@ -461,7 +487,8 @@ function App() {
               <a 
                 href="https://medium.com/design-bootcamp/pm-interview-question-microsoft-is-expanding-ai-integration-across-its-products-9dfc7751e189" 
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="no
+                opener noreferrer"
                 className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700"
               >
                 Read more <ArrowRight className="ml-2 w-4 h-4" />
