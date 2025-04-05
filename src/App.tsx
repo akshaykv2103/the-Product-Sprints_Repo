@@ -49,17 +49,17 @@ function App() {
     },
     {
       text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.",
-      name: "Priya Sharma",
-      college: "IIM Bangalore",
-      role: "Senior PM, Flipkart",
-      linkedin: "https://www.linkedin.com/in/priyasharma-pm/",
+      name: "Muskan Goel",
+      college: "IIT Roorkee",
+      role: "Business Analyst, Tata 1mg",
+      linkedin: "linkedin.com/in/-muskan-goel24",
     },
     {
       text: "What sets The Product Sprints apart is their practical approach to product management. The community's support in reviewing my work deliverables and the structured learning path helped me transition from engineering to product management seamlessly.",
-      name: "Rahul Mehta",
-      college: "IIT Delhi",
-      role: "Product Manager, Microsoft",
-      linkedin: "https://www.linkedin.com/in/rahulmehta-pm/",
+      name: "Afraz Jamal",
+      college: "IIT Kanpur",
+      role: "Strategy Associate, BatterySmart",
+      linkedin: "linkedin.com/in/afraz-jamal-081018232",
     }
   ];
 
@@ -281,7 +281,7 @@ function App() {
               </a>
 
               <a 
-                href="https://drive.google.com/file/d/1PvTJKGmCG91HdpE9eipHrDzznwPcNFlg/view?usp=sharing" 
+                href="https://drive.google.com/file/d/1PakJmJxz6PxbjEy-EPkt-sXiddyKDCHf/view?usp=drive_link" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-gray-400 text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-gray-600 transition duration-300 w-full max-w-md text-center transform hover:scale-105"
