@@ -18,6 +18,8 @@ body {
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0a0a0a;
+  color: #ffffff;
 }
 
 /* Enhanced animations */
@@ -82,6 +84,15 @@ body {
   }
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 /* Animation classes */
 .animate-float {
   animation: float 6s ease-in-out infinite;
@@ -96,8 +107,23 @@ body {
   animation: gradient 8s linear infinite;
 }
 
-.fade-up {
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
   animation: fadeUp 1s ease-out forwards;
+}
+
+.animate-fade-in-up-delayed {
+  opacity: 0;
+  animation: fadeUp 1s ease-out 0.3s forwards;
+}
+
+.animate-fade-in-up-delayed-2 {
+  opacity: 0;
+  animation: fadeUp 1s ease-out 0.6s forwards;
 }
 
 .scale-in {
@@ -119,14 +145,35 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient text utilities */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400;
+}
+
+/* Card hover effects */
+.hover-card {
+  @apply transition-all duration-300 transform hover:scale-105;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold 
+         hover:opacity-90 transition-all transform hover:scale-105 duration-300;
+}
+
+.btn-secondary {
+  @apply bg-[#0a0a0a] border border-gray-800 text-white px-6 py-3 rounded-xl font-semibold 
+         hover:bg-[#111111] transition-all transform hover:scale-105 duration-300;
 }
