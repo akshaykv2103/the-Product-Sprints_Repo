@@ -403,7 +403,7 @@ function App() {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full blur-xl"></div>
                   <img 
-                    src="/images/rohitfp.jpg"
+                    src="/images/rohitfp.png"
                     alt="Rohit Verma"
                     className="w-64 h-64 rounded-full object-cover relative z-10 ring-4 ring-[#0a0a0a]"
                   />
