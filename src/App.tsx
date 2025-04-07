@@ -180,9 +180,9 @@ image: "/images/ag.png"
           muted 
           playsInline
           className="absolute w-full h-full object-cover opacity-30"
-          style={{ filter: 'brightness(1.0)' }}
+          style={{ filter: 'brightness(1.89)' }}
         >
-          <source src="bg6.mp4" type="video/mp4" />
+          <source src="bg8.mp4" type="video/mp4" />
         </video>
         
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
