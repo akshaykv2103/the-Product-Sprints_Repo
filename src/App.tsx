@@ -138,11 +138,11 @@ image: "/images/ag.png"
       <nav className="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-gray-800">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
-            <img 
-              src="/images/logo.png"
-              alt="The Product Sprints Logo" 
-              className="h-16 md:h-20 w-auto"
-            />
+  <img 
+    src="/images/logo.png"
+    alt="The Product Sprints Logo" 
+    className="h-20 md:h-28 w-auto max-w-none"
+  />
             <div className="flex items-center gap-6">
               <a 
                 href="https://www.linkedin.com/company/theproductsprints/"
@@ -182,7 +182,7 @@ image: "/images/ag.png"
           className="absolute w-full h-full object-cover opacity-30"
           style={{ filter: 'brightness(1.9)' }}
         >
-          <source src="bg8.mp4" type="video/mp4" />
+          <source src="bg6.mp4" type="video/mp4" />
         </video>
         
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
