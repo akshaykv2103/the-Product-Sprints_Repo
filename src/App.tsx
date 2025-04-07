@@ -176,7 +176,7 @@ function App() {
           muted 
           playsInline
           className="absolute w-full h-full object-cover opacity-30"
-          style={{ filter: 'brightness(0.4)' }}
+          style={{ filter: 'brightness(0.75)' }}
         >
           <source src="bg.mp4" type="video/mp4" />
         </video>
