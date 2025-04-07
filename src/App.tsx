@@ -178,7 +178,7 @@ function App() {
           className="absolute w-full h-full object-cover opacity-30"
           style={{ filter: 'brightness(0.4)' }}
         >
-          <source src="https://player.vimeo.com/external/477721088.hd.mp4?s=1d0b31b4b0a5f2f0f3c3c5a6c4c7f7b7b7b7b7b7&profile_id=175" type="video/mp4" />
+          <source src="bg.mp4" type="video/mp4" />
         </video>
         
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
