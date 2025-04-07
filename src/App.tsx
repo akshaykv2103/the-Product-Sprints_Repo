@@ -182,7 +182,7 @@ image: "/images/ag.png"
           className="absolute w-full h-full object-cover opacity-30"
           style={{ filter: 'brightness(0.9)' }}
         >
-          <source src="bg4.mp4" type="video/mp4" />
+          <source src="bg2.mp4" type="video/mp4" />
         </video>
         
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
