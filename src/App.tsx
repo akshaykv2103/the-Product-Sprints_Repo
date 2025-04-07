@@ -180,7 +180,7 @@ image: "/images/ag.png"
           muted 
           playsInline
           className="absolute w-full h-full object-cover opacity-30"
-          style={{ filter: 'brightness(0.9)' }}
+          style={{ filter: 'brightness(1.0)' }}
         >
           <source src="bg1.mp4" type="video/mp4" />
         </video>
