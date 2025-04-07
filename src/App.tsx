@@ -100,6 +100,7 @@ function App() {
       college: "IIT Kanpur",
       role: "Product Manager, HDFC Securities",
       linkedin: "https://www.linkedin.com/in/akshay-kumar-verma-326b03202/",
+image: "/images/akv.png"
      
     },
     {
@@ -108,6 +109,7 @@ function App() {
       college: "IIT Roorkee",
       role: "Business Analyst, Tata 1mg",
       linkedin: "https://www.linkedin.com/in/-muskan-goel24/",
+image: "/images/mg.png"
       
     },
     {
@@ -116,6 +118,7 @@ function App() {
       college: "IIT Kanpur",
       role: "Strategy Associate, BatterySmart",
       linkedin: "https://www.linkedin.com/in/afraz-jamal-081018232",
+image: "/images/aj.png"
       
     },
     {
@@ -124,6 +127,7 @@ function App() {
       college: "IIT Ropar",
       role: "Associate Product Manager, Zomato",
       linkedin: "https://www.linkedin.com/in/aditya-gupta-pm/",
+image: "/images/ag.png"
       
     }
   ];
