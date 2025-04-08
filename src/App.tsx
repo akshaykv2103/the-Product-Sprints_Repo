@@ -139,7 +139,7 @@ image: "/images/ag.png"
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
   <img 
-    src="/images/mlogo.gif"
+    src="/images/m2logo.gif"
     alt="The Product Sprints Logo" 
     className="h-20 md:h-28 w-auto max-w-none"
   />
