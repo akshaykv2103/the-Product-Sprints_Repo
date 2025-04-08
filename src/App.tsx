@@ -380,7 +380,7 @@ image: "/images/ag.png"
               </a>
 
               <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfIawc05rGI7vDBGY-BF7BAHP_bTve8QmBbstaByX0JacBwRw/viewform" 
+                href="https://forms.gle/aWXxe9d1WVGE84p8A" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:opacity-90 transition-all transform hover:scale-105 duration-300"
