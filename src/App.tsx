@@ -145,14 +145,7 @@ function App() {
                 className="h-20 md:h-28 w-auto max-w-none"
               />
             </Link>
-            <div className="flex items-center gap-6">
-              <Link 
-                to="/events"
-                className="text-gray-400 hover:text-white transition-colors text-lg"
-              >
-                Events
-              </Link>
-              <a 
+            <a 
                 href="https://www.linkedin.com/company/theproductsprints/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -160,6 +153,14 @@ function App() {
               >
                 <Linkedin className="w-6 h-6" />
               </a>
+            <div className="flex items-center gap-6">
+              <Link 
+                to="/events"
+                className="text-gray-400 hover:text-white transition-colors text-lg"
+              >
+                Events
+              </Link>
+              
               <a 
                 href="#blogs-section" 
                 onClick={scrollToBlogs}
