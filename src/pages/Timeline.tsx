@@ -82,57 +82,59 @@ const Timeline = () => {
         </div>
 
         {/* Desktop Pricing Table */}
-       {/* Desktop Pricing Table */}
-<div className="hidden md:block mt-20 bg-white text-gray-800 rounded-xl shadow-md overflow-hidden">
-  <div className="grid grid-cols-3 text-center font-semibold text-sm">
-    <div className="py-4 px-2 border-r col-span-1 flex flex-col items-center justify-center bg-gray-100">
-     
-      <p className="text-xs font-medium text-center">
-        An exclusive community of <br />
-        <span className="text-red-600 font-bold">IIT, IIM Alumni and Students</span>
-      </p>
-    </div>
+       {/* Desktop Pricing Cards (2 side-by-side) */}
+<div className="hidden md:flex justify-center gap-8 mt-20 max-w-5xl mx-auto">
+  {[
+    {
+      type: 'Basic',
+      price: 'Rs. 7,999',
+      old: 'Rs. 15,999',
+      bg: 'bg-yellow-50',
+      text: 'text-yellow-600',
+      features: ["✅", "✅", "✅", "✅", "✅", "✅", "1", "❌", "❌", "❌"]
+    },
+    {
+      type: 'Pro',
+      price: 'Rs. 9,999',
+      old: 'Rs. 19,999',
+      bg: 'bg-green-50',
+      text: 'text-green-600',
+      features: ["✅", "✅", "✅", "✅", "✅", "✅", "4", "✅", "✅", "✅"]
+    }
+  ].map((plan, idx) => (
+    <div
+      key={idx}
+      className={`rounded-xl shadow-md border w-full ${plan.bg} flex flex-col`}
+    >
+      <div className="p-6 text-center">
+        <p className="text-xl font-bold text-gray-800">{plan.type}</p>
+        <p className={`text-3xl font-bold mt-1 ${plan.text}`}>{plan.price}</p>
+        <p className="line-through text-sm text-gray-500">{plan.old}</p>
+      </div>
 
-    <div className="py-4 border-r bg-yellow-100">
-      <p className="text-xl font-bold">Basic</p>
-      <p className="text-2xl font-bold text-yellow-600 mt-1">Rs. 7,999</p>
-      <p className="line-through text-sm text-gray-500">Rs. 15,999</p>
+      <ul className="text-sm text-left px-6 pb-6 space-y-2 text-gray-700 font-medium flex-1">
+        {[
+          "Lecture Notes & Recordings",
+          "Deck Making Masterclass & Recordings",
+          "Case Assignments & Solutions",
+          "Product Portfolio",
+          "Graduation Project",
+          "Exclusive Community Access",
+          "Master Product Mocks",
+          "Exclusive 1:1 Mentorship",
+          "Resume Review & Feedback",
+          "Free Access to Exclusive Sessions"
+        ].map((feature, index) => (
+          <li key={index} className="flex justify-between border-b pb-2">
+            <span>{feature}</span>
+            <span>{plan.features[index]}</span>
+          </li>
+        ))}
+      </ul>
     </div>
-
-    <div className="py-4 bg-green-100">
-      <p className="text-xl font-bold">Pro</p>
-      <p className="text-2xl font-bold text-green-600 mt-1">Rs. 9,999</p>
-      <p className="line-through text-sm text-gray-500">Rs. 19,999</p>
-    </div>
-  </div>
-
-  <div className="grid grid-cols-3 text-sm text-gray-800">
-    {[
-      "Lecture Notes & Recordings",
-      "Deck Making Masterclass & Recordings",
-      "Case Assignments & Solutions",
-      "Product Portfolio",
-      "Graduation Project",
-      "Exclusive Community Access",
-      "Master Product Mocks",
-      "Exclusive 1:1 Mentorship",
-      "Resume Review & Feedback",
-      "Free Access to Exclusive Sessions"
-    ].map((feature, index) => (
-      <React.Fragment key={index}>
-        <div className="border-t py-3 px-4 bg-white font-medium text-left">
-          {feature}
-        </div>
-        <div className="border-t py-3 px-4 bg-yellow-50 text-center">
-          {index < 6 ? "✅" : index === 6 ? "1" : "❌"}
-        </div>
-        <div className="border-t py-3 px-4 bg-green-50 text-center">
-          {index < 6 ? "✅" : index === 6 ? "4" : "✅"}
-        </div>
-      </React.Fragment>
-    ))}
-  </div>
+  ))}
 </div>
+
 
 
         {/* Mobile Pricing Cards */}
