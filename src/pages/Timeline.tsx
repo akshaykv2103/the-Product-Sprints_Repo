@@ -86,7 +86,7 @@ const Timeline = () => {
 <div className="hidden md:block mt-20 bg-white text-gray-800 rounded-xl shadow-md overflow-hidden">
   <div className="grid grid-cols-3 text-center font-semibold text-sm">
     <div className="py-4 px-2 border-r col-span-1 flex flex-col items-center justify-center bg-gray-100">
-      <img src="/logo.png" alt="Logo" className="w-10 mb-2" />
+     
       <p className="text-xs font-medium text-center">
         An exclusive community of <br />
         <span className="text-red-600 font-bold">IIT, IIM Alumni and Students</span>
