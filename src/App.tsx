@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowRight, CheckCircle2, Users2, Zap, MessageSquare, Linkedin, Phone, Star, FileCheck, Brain, Target, Rocket, PenTool, BookOpen, Trophy, Sparkles, GraduationCap } from 'lucide-react';
 import Events from './pages/Events';
+import Timeline from './pages/Timeline';
 
 function App() {
   const [activeReview, setActiveReview] = useState(0);
@@ -161,7 +162,12 @@ function App() {
               >
                 Events
               </Link>
-               
+               <Link 
+                to="/timeline"
+                className="text-gray-400 hover:text-white transition-colors text-lg"
+              >
+                Timeline
+              </Link>
               <a 
                 href="#blogs-section" 
                 onClick={scrollToBlogs}
@@ -182,9 +188,11 @@ function App() {
         </div>
       </nav>
 
-      <Routes>
+    <Routes>
         <Route path="/events" element={<Events />} />
+       <Route path="/timeline" element={<Timeline />} />
         <Route path="/" element={
+
           <>
             {/* Hero section */}
             <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
