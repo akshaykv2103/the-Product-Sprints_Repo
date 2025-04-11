@@ -66,37 +66,44 @@ function App() {
   };
 
   const uspItems = [
-    {
-      title: "Identify the levers to growth",
-      description: "Identify the input levers to the north star & build the growth equation. Understand the nuke scenario for your goal & how far retention alone can solve growth.",
-      icon: Target,
-    },
-    {
-      title: "Convincing stakeholders",
-      description: "Learn to go from looking at metrics in isolation, to going a level deeper & seeing them as a connected system. Build true conviction & defend strategic decisions.",
-      icon: Users2,
-    },
-    {
-      title: "Building growth models",
-      description: "Master the art of creating comprehensive growth models that drive product success. Learn to identify and leverage key metrics that matter.",
-      icon: Rocket,
-    },
-    {
-      title: "Strategic thinking",
-      description: "Develop the ability to think strategically about product growth and make data-driven decisions that impact business outcomes.",
-      icon: Brain,
-    },
-    {
-      title: "Hands-on execution",
-      description: "Get practical experience in implementing growth strategies and measuring their impact through real-world case studies.",
-      icon: PenTool,
-    },
-    {
-      title: "Leadership skills",
-      description: "Build the confidence and capabilities needed to lead product teams and drive organizational growth initiatives.",
-      icon: Star,
-    }
-  ];
+  {
+    title: "Crack Product Strategy",
+    description:
+      "Use first principles, JTBD, and competitive insights to define winning product strategies. Learn to craft compelling problem statements that align with business goals.",
+    icon: Target,
+  },
+  {
+    title: "Prioritize Like a Pro",
+    description:
+      "Master prioritization frameworks like RICE and MoSCoW to confidently decide what to build next. Structure your product roadmap with impact-focused decisions.",
+    icon: PenTool,
+  },
+  {
+    title: "Drive Growth with Metrics",
+    description:
+      "Understand and apply growth frameworks like AARRR. Learn to define north star metrics, set up experiments, and make data-informed product bets.",
+    icon: Rocket,
+  },
+  {
+    title: "Build and Communicate PRDs",
+    description:
+      "Translate user problems into clear PRDs and wireframes. Collaborate with design and tech teams with confidence and clarity.",
+    icon: Brain,
+  },
+  {
+    title: "Ace PM Interviews",
+    description:
+      "Break down case studies, structure product thinking answers, and handle guesstimates with real-world mock prep. Build your product portfolio and resume.",
+    icon: Star,
+  },
+  {
+    title: "Manage Stakeholders Effectively",
+    description:
+      "Learn the language of engineering, design, and business. Manage cross-functional teams and influence decisions without authority.",
+    icon: Users2,
+  }
+];
+
 
   const reviews = [
     {
