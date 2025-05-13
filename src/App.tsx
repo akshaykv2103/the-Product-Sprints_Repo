@@ -115,6 +115,14 @@ function App() {
       image: "/images/akv.png"
     },
     {
+      text: "The Product Sprints gave me exactly what I needed to land a PM role—real-world problem-solving, hands-on product challenges, and mentorship from top industry leaders. The structured sprints and case studies helped me think like a PM, and the exclusive network opened doors I never imagined. Highly recommend!🚀",
+      name: "Pratibha Anand",
+      college: "IIT Kanpur",
+      role: "Business Analyst, HiLabs",
+      linkedin: "linkedin.com/in/pratibha-anand-932805210/",
+      image: "/images/pa.png"
+    },
+    {
       text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.",
       name: "Muskan Goel",
       college: "IIT Roorkee",
@@ -127,7 +135,7 @@ function App() {
       name: "Afraz Jamal",
       college: "IIT Kanpur",
       role: "Strategy Associate, BatterySmart",
-      linkedin: "https://www.linkedin.com/in/afraz-jamal-081018232",
+      linkedin: "https://www.linkedin.com/in/afraz-jamal-081018232/",
       image: "/images/aj.png"
     },
     {
@@ -496,7 +504,7 @@ function App() {
                   className="text-center mb-16"
                 >
                   <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                    What Our Students Say
+                   Our Recent Graduates
                   </h2>
                 </motion.div>
 
