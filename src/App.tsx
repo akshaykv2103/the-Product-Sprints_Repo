@@ -496,94 +496,98 @@ function App() {
 
             {/* Enhanced Testimonials section */}
             <section className="py-32 bg-[#0f0f0f] relative overflow-hidden">
-              <div className="container mx-auto px-4 relative">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="text-center mb-16"
-                >
-                  <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                   Our Recent Graduates
-                  </h2>
-                </motion.div>
+  <div className="container mx-auto px-4 relative">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+        Our Recent Graduates
+      </h2>
+    </motion.div>
 
-                <div className="max-w-4xl mx-auto">
-                  <div className="relative">
-                    {reviews.map((review, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ 
-                          opacity: index === activeReview ? 1 : 0,
-                          x: index === activeReview ? 0 : 100,
-                          scale: index === activeReview ? 1 : 0.95
-                        }}
-                        transition={{ duration: 0.5 }}
-                        className={`flex items-start gap-8 bg-[#0a0a0a] rounded-2xl p-8 border border-gray-800 ${
-                          index === activeReview ? '' : 'absolute top-0 left-0 right-0'
-                        }`}
-                      >
-                        <motion.div 
-                          className="relative min-w-[120px] h-[120px] rounded-full overflow-hidden"
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <img
-                            src={review.image}
-                            alt={review.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </motion.div>
-                        
-                        <div className="flex-1">
-                          <div className="relative">
-                            <div className="absolute -top-4 -left-4 text-6xl text-gray-800 font-serif">"</div>
-                            <p className="text-lg text-gray-300 leading-relaxed mb-6 relative z-10">
-                              {review.text}
-                            </p>
-                          </div>
+    <div className="max-w-4xl mx-auto">
+      <div className="relative">
+        {reviews.map((review, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ 
+              opacity: index === activeReview ? 1 : 0,
+              x: index === activeReview ? 0 : 100,
+              scale: index === activeReview ? 1 : 0.95
+            }}
+            transition={{ duration: 0.5 }}
+            className={`flex items-start gap-8 bg-[#0a0a0a] rounded-2xl p-8 border border-gray-800 ${
+              index === activeReview ? '' : 'absolute top-0 left-0 right-0'
+            }`}
+          >
+            <motion.div 
+              className="relative min-w-[120px] h-[120px] rounded-full overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+            >
+              <img
+                src={review.image}
+                alt={review.name}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+            
+            <div className="flex-1">
+              <div className="relative">
+                <div className="absolute -top-4 -left-4 text-6xl text-gray-800 font-serif">"</div>
+                <p className="text-lg text-gray-300 leading-relaxed mb-6 relative z-10">
+                  {review.text}
+                </p>
+              </div>
 
-                          <div className="flex items-center justify-between mt-6">
-                            <div>
-                              <h4 className="font-semibold text-white">{review.name}</h4>
-                              <p className="text-sm text-gray-400">{review.college}</p>
-                              <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                                {review.role}
-                              </p>
-                            </div>
-                            <motion.a
-                              href={review.linkedin}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-gray-400 hover:text-white transition-colors"
-                              whileHover={{ scale: 1.1, rotate: 5 }}
-                            >
-                              <Linkedin className="w-6 h-6" />
-                            </motion.a>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                  
-                  <div className="flex justify-center mt-8 gap-3">
-                    {reviews.map((_, index) => (
-                      <motion.button
-                        key={index}
-                        onClick={() => setActiveReview(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                          index === activeReview
-                            ? 'bg-purple-600 scale-125'
-                            : 'bg-gray-700 hover:bg-gray-600'
-                        }`}
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.9 }}
-                      />
-                    ))}
-                  </div>
+              <div className="flex items-center justify-between mt-6">
+                <div>
+                  <h4 className="font-semibold text-white">{review.name}</h4>
+                  <p className="text-sm text-gray-400">{review.college}</p>
+                  <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                    {review.role}
+                  </p>
+                </div>
+                <div className="z-10">
+                  <a
+                    href={review.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors inline-block"
+                  >
+                    <motion.div whileHover={{ scale: 1.1, rotate: 5 }}>
+                      <Linkedin className="w-6 h-6" />
+                    </motion.div>
+                  </a>
                 </div>
               </div>
-            </section>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+      
+      <div className="flex justify-center mt-8 gap-3">
+        {reviews.map((_, index) => (
+          <motion.button
+            key={index}
+            onClick={() => setActiveReview(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === activeReview
+                ? 'bg-purple-600 scale-125'
+                : 'bg-gray-700 hover:bg-gray-600'
+            }`}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
             {/* Blog section */}
             <section id="blogs-section" className="py-32 bg-[#0a0a0a] relative overflow-hidden">
