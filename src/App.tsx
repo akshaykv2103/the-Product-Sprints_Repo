@@ -390,7 +390,7 @@ function App() {
 
                   <div className="grid md:grid-cols-2 gap-12 mb-16">
                     <div className="bg-[#0a0a0a] p-8 rounded-2xl border border-gray-800">
-                      <h3 className="text-4xl font-bold text-white mb-2">cohort II starts, 10 August 2025</h3>
+                      <h3 className="text-4xl font-bold text-white mb-2">Cohort II starts from 10 August 2025</h3>
                       <p className="text-gray-400 text-lg">4 weeks cohort</p>
                     </div>
                     <div className="bg-[#0a0a0a] p-8 rounded-2xl border border-gray-800">
