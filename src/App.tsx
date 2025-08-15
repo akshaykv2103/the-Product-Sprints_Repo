@@ -587,6 +587,60 @@ function App() {
     </div>
   </div>
 </section>
+{/* Partnered Clubs & IITs Section */}
+<section className="py-32 bg-[#0a0a0a] relative overflow-hidden">
+  <div className="container mx-auto px-4 relative">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+    >
+      Partnered Clubs & IITs
+    </motion.h2>
+
+    {/* Carousel */}
+    <div className="overflow-hidden relative max-w-5xl mx-auto">
+      <div
+        className="flex transition-transform duration-700 ease-in-out"
+        style={{
+          transform: `translateX(-${activePartner * 100}%)`,
+          width: `${partnerImages.length * 100}%`,
+        }}
+      >
+        {partnerImages.map((img, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-full flex justify-center items-center p-4"
+          >
+            <img
+              src={img}
+              alt={`Partner ${index + 1}`}
+              className="max-h-40 object-contain rounded-xl border border-gray-800 bg-[#0f0f0f] p-6"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center mt-6 gap-3">
+        {partnerImages.map((_, index) => (
+          <motion.button
+            key={index}
+            onClick={() => setActivePartner(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === activePartner
+                ? 'bg-purple-600 scale-125'
+                : 'bg-gray-700 hover:bg-gray-600'
+            }`}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
 
             {/* Blog section */}
