@@ -342,57 +342,78 @@ function App() {
             </section>
 
             {/* --- NEW PARTNER SECTION STARTS HERE --- */}
-            <section className="py-20 bg-[#0a0a0a]">
-              <div className="container mx-auto px-4">
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
-                >
-                  Proudly Partnered With
-                </motion.h2>
-                
-                <div className="relative h-24 flex items-center justify-center">
-                  {partnerLogos.map((logo, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{
-                        opacity: index === activePartner ? 1 : 0,
-                        scale: index === activePartner ? 1 : 0.95,
-                        y: index === activePartner ? 0 : 10,
-                      }}
-                      transition={{ duration: 0.5, ease: 'easeInOut' }}
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      <img
-                        src={logo.url}
-                        alt={logo.name}
-                        className="max-h-20 max-w-[200px] object-contain filter brightness-0 invert"
-                      />
-                    </motion.div>
-                  ))}
-                </div>
+            {/* --- UPDATED PARTNER SECTION --- */}
+<section className="py-20 bg-[#0a0a0a]">
+  <div className="container mx-auto px-4">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+    >
+      Proudly Partnered With
+    </motion.h2>
+    
+    {/* Container for the logo image */}
+    <div className="relative h-24 flex items-center justify-center">
+      {partnerLogos.map((logo, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: index === activePartner ? 1 : 0,
+            scale: index === activePartner ? 1 : 0.95,
+            y: index === activePartner ? 0 : 10,
+          }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <img
+            src={logo.url}
+            alt={logo.name}
+            className="max-h-20 max-w-[200px] object-contain"
+          />
+        </motion.div>
+      ))}
+    </div>
 
-                <div className="flex justify-center mt-8 gap-3">
-                  {partnerLogos.map((_, index) => (
-                    <motion.button
-                      key={index}
-                      onClick={() => setActivePartner(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === activePartner
-                          ? 'bg-purple-600 scale-125'
-                          : 'bg-gray-700 hover:bg-gray-600'
-                      }`}
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.9 }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
+    {/* NEW: Container for the partner name */}
+    <div className="relative h-8 mt-4 flex items-center justify-center">
+      {partnerLogos.map((partner, index) => (
+        <motion.p
+          key={partner.name}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: index === activePartner ? 1 : 0,
+            y: index === activePartner ? 0 : 5,
+          }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className="absolute text-center text-gray-400 text-lg"
+        >
+          {partner.name}
+        </motion.p>
+      ))}
+    </div>
+
+    {/* The navigation dots */}
+    <div className="flex justify-center mt-8 gap-3">
+      {partnerLogos.map((_, index) => (
+        <motion.button
+          key={index}
+          onClick={() => setActivePartner(index)}
+          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            index === activePartner
+              ? 'bg-purple-600 scale-125'
+              : 'bg-gray-700 hover:bg-gray-600'
+          }`}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+        />
+      ))}
+    </div>
+  </div>
+</section>
             {/* --- NEW PARTNER SECTION ENDS HERE --- */}
 
             {/* Company Logos Section */}
