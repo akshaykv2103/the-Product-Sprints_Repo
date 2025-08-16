@@ -8,10 +8,20 @@ import Timeline from './pages/Timeline';
 
 function App() {
   const [activeReview, setActiveReview] = useState(0);
+  const [activePartner, setActivePartner] = useState(0); // State for the new partner slider
   const cardRefs = useRef([]);
   const [visibleCards, setVisibleCards] = useState(new Set());
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
+
+  // Data for the new Partner Logos section
+  const partnerLogos = [
+    { name: "E-Cell IIT Kanpur", url: "/images/partners/ecell_iitk.png" },
+    { name: "E-Cell IIT Roorkee", url: "/images/partners/ecell_iitroorkee.png" },
+    { name: "E-Cell IIT BHU", url: "/images/partners/ecell_iitbhu.png" },
+    { name: "EDC IIT Delhi", url: "/images/partners/edc_iitdelhi.png" },
+    { name: "Consulting Group IIM Lucknow", url: "/images/partners/cg_iiml.png" }
+  ];
 
   const companyLogos = [
     { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
@@ -48,12 +58,21 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  // Combined useEffect for both sliders
   useEffect(() => {
-    const interval = setInterval(() => {
+    const reviewInterval = setInterval(() => {
       setActiveReview((prev) => (prev + 1) % reviews.length);
     }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+
+    const partnerInterval = setInterval(() => {
+      setActivePartner((prev) => (prev + 1) % partnerLogos.length);
+    }, 3000); // Partners slide a bit faster
+
+    return () => {
+      clearInterval(reviewInterval);
+      clearInterval(partnerInterval);
+    };
+  }, [partnerLogos.length]); // Added dependency
 
   const scrollToBlogs = () => {
     const blogsSection = document.getElementById('blogs-section');
@@ -161,7 +180,7 @@ function App() {
                 className="h-20 md:h-28 w-auto max-w-none"
               />
             </Link>
-           
+            
             <div className="flex items-center gap-6">
               <a 
                 href="https://www.linkedin.com/company/theproductsprints/"
@@ -321,6 +340,60 @@ function App() {
                 </div>
               </div>
             </section>
+
+            {/* --- NEW PARTNER SECTION STARTS HERE --- */}
+            <section className="py-20 bg-[#0a0a0a]">
+              <div className="container mx-auto px-4">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+                >
+                  Proudly Partnered With
+                </motion.h2>
+                
+                <div className="relative h-24 flex items-center justify-center">
+                  {partnerLogos.map((logo, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: index === activePartner ? 1 : 0,
+                        scale: index === activePartner ? 1 : 0.95,
+                        y: index === activePartner ? 0 : 10,
+                      }}
+                      transition={{ duration: 0.5, ease: 'easeInOut' }}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <img
+                        src={logo.url}
+                        alt={logo.name}
+                        className="max-h-20 max-w-[200px] object-contain filter brightness-0 invert"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="flex justify-center mt-8 gap-3">
+                  {partnerLogos.map((_, index) => (
+                    <motion.button
+                      key={index}
+                      onClick={() => setActivePartner(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === activePartner
+                          ? 'bg-purple-600 scale-125'
+                          : 'bg-gray-700 hover:bg-gray-600'
+                      }`}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+            {/* --- NEW PARTNER SECTION ENDS HERE --- */}
 
             {/* Company Logos Section */}
             <section className="py-20 bg-[#0a0a0a] relative overflow-hidden">
