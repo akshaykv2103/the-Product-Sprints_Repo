@@ -16,11 +16,11 @@ function App() {
 
   // Data for the new Partner Logos section
   const partnerLogos = [
-    { name: "E-Cell IIT Kanpur", url: "/images/partners/ecell_iitk.png" },
-    { name: "E-Cell IIT Roorkee", url: "/images/partners/ecell_iitroorkee.png" },
-    { name: "E-Cell IIT BHU", url: "/images/partners/ecell_iitbhu.png" },
-    { name: "EDC IIT Delhi", url: "/images/partners/edc_iitdelhi.png" },
-    { name: "Consulting Group IIM Lucknow", url: "/images/partners/cg_iiml.png" }
+    { name: "E-Cell IIT Kanpur", url: "/images/ecell_iitk.png" },
+    { name: "E-Cell IIT Roorkee", url: "/images/ecell_iitroorkee.png" },
+    { name: "E-Cell IIT BHU", url: "/images/ecell_iitbhu.png" },
+    { name: "EDC IIT Delhi", url: "/images/edc_iitdelhi.png" },
+    { name: "Consulting Group IIM Lucknow", url: "/images/cg_iiml.png" }
   ];
 
   const companyLogos = [
