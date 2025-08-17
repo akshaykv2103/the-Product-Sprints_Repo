@@ -19,8 +19,8 @@ function App() {
     { name: "E-Cell IIT BHU", url: "/images/ecell_iitbhu.png" },
     { name: "E-Cell IIT Guwahati", url: "/images/ecell_iitg.png" },
     { name: "Fincom IIT Ropar", url: "/images/fincomm_iitrpr.png" },
-    { name: "The Product Club IIT Kanpur", url: "/images/tpc_iitk.png" },
-    { name: "The Product Club IIT Jodhpur", url: "/images/tpc_iitj.png" }
+    { name: "The Product Club IIT Kanpur", url: "/images/tpc_iitk.jpg" },
+    { name: "The Product Club IIT Jodhpur", url: "/images/tpc_iitj.jpg" }
   ];
 
   const companyLogos = [
