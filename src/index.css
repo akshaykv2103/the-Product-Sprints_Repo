@@ -93,6 +93,13 @@ body {
   }
 }
 
+/* --- ADDITIONS FOR MARQUEE --- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+/* ----------------------------- */
+
 /* Animation classes */
 .animate-float {
   animation: float 6s ease-in-out infinite;
@@ -110,6 +117,12 @@ body {
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }
+
+/* --- ADDITIONS FOR MARQUEE --- */
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+/* ----------------------------- */
 
 .animate-fade-in-up {
   opacity: 0;
@@ -170,10 +183,18 @@ body {
 /* Button styles */
 .btn-primary {
   @apply bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold 
-         hover:opacity-90 transition-all transform hover:scale-105 duration-300;
+        hover:opacity-90 transition-all transform hover:scale-105 duration-300;
 }
 
 .btn-secondary {
   @apply bg-[#0a0a0a] border border-gray-800 text-white px-6 py-3 rounded-xl font-semibold 
-         hover:bg-[#111111] transition-all transform hover:scale-105 duration-300;
+        hover:bg-[#111111] transition-all transform hover:scale-105 duration-300;
 }
+
+/* --- ADDITIONS FOR MARQUEE --- */
+@layer utilities {
+  .animate-pause {
+    animation-play-state: paused;
+  }
+}
+/* ----------------------------- */
