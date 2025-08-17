@@ -25,6 +25,34 @@ function App() {
     { name: "The Product Club IIT Jodhpur", url: "/images/tpc_iitj.jpg" }
   ];
 
+  // Add this new data array to App.js
+const cohortReviews = [
+  {
+    quote: "Teaching the thought process rather than just theory. At the end of the day as we are supposed to do this.",
+    author: "Ritesh, IIT Kanpur"
+  },
+  {
+    quote: "Examples in sessions were great, and it very represents the real job profile.",
+    author: "Shiva, IIT Guwahati"
+  },
+  {
+    quote: "The pace was just right, with perfect discussions and peer interactions.",
+    author: "Vidushi, IIT Indore"
+  },
+  {
+    quote: "The learning experience was collaborative and thoughtful. The instructors knew exactly how to challenge us in a way that pushed our thinking.",
+    author: "Shivam, IIT Indore"
+  },
+  {
+    quote: "The key highlights of the cohort includes KPI trees and metric sessions which involves real world cases.",
+    author: "Barigala, IITG"
+  },
+  {
+    quote: "The key highlights of the cohort includes UI/UX ideations and RCA cases which involves industrial insights.",
+    author: "Amey, IIT Kanpur"
+  }
+];
+
   const companyLogos = [
     { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
     { name: "Google", url: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
@@ -417,6 +445,39 @@ function App() {
   </div>
 </section>
             {/* --- NEW PARTNER SECTION ENDS HERE --- */}
+
+            // Place this new section right after the </section> tag of the "Proudly Partnered With" section.
+
+{/* --- COHORT REVIEW MARQUEE SECTION STARTS HERE --- */}
+<section className="py-20 bg-[#0a0a0a] text-white">
+  <div className="container mx-auto px-4">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+    >
+      What Our Members Are Saying
+    </motion.h2>
+  </div>
+  
+  <div 
+    className="relative w-full overflow-hidden"
+    style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+  >
+    <div className="flex animate-marquee hover:animate-pause">
+      {/* We render the reviews twice for a seamless loop */}
+      {cohortReviews.concat(cohortReviews).map((review, index) => (
+        <div key={index} className="flex-shrink-0 w-96 mx-4 p-8 bg-[#0f0f0f] border border-gray-800 rounded-2xl">
+          <p className="text-gray-300 mb-6">"{review.quote}"</p>
+          <footer className="text-white font-bold">{review.author}</footer>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+{/* --- COHORT REVIEW MARQUEE SECTION ENDS HERE --- */}
 
             {/* Company Logos Section */}
             <section className="py-20 bg-[#0a0a0a] relative overflow-hidden">
