@@ -446,8 +446,6 @@ const cohortReviews = [
 </section>
             {/* --- NEW PARTNER SECTION ENDS HERE --- */}
 
-            // Place this new section right after the </section> tag of the "Proudly Partnered With" section.
-
 {/* --- COHORT REVIEW MARQUEE SECTION STARTS HERE --- */}
 <section className="py-20 bg-[#0a0a0a] text-white">
   <div className="container mx-auto px-4">
