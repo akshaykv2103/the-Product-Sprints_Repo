@@ -20,6 +20,8 @@ function App() {
     { name: "E-Cell IIT Guwahati", url: "/images/ecell_iitg.png" },
     { name: "Fincom IIT Ropar", url: "/images/fincomm_iitrpr.png" },
     { name: "The Product Club IIT Kanpur", url: "/images/tpc_iitk.jpg" },
+    { name: "E-Cell IIT Indore", url: "/images/ecell_iiti.jpg" },
+    { name: "The Business Club IIT BHU", url: "/images/bizclub_iitbhu.jpg" },
     { name: "The Product Club IIT Jodhpur", url: "/images/tpc_iitj.jpg" }
   ];
 
