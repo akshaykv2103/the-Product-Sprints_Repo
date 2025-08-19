@@ -29,40 +29,40 @@ function App() {
 
 const previousSpeakers = [
   {
-    name: "Aakash Gupta",
-    role: "Senior PM, Google",
-    image: "/images/speakers/speaker1.png", // Use a background-removed .png
-    linkedin: "https://www.linkedin.com/in/aakash-gupta-71233219/"
+    name: "Vaibhav Chandra",
+    role: "Growth Manager @PocketFM | IIT Kanpur",
+    image: "/images/Vaibhav.png", // Use a background-removed .png
+    linkedin: "https://www.linkedin.com/in/vaibhav-chandra7714/"
   },
   {
-    name: "Anshumani Ruddra",
-    role: "Group PM, Google",
-    image: "/images/speakers/speaker2.png",
-    linkedin: "https://www.linkedin.com/in/anshumani/"
+    name: "Vinny Akkal",
+    role: "PM 2 @Paytm Money",
+    image: "/images/Vinny.png",
+    linkedin: "https://www.linkedin.com/in/vinny-akkal-8b2486152/"
   },
   {
-    name: "Manan Modi",
-    role: "Senior PM, Microsoft",
-    image: "/images/speakers/speaker3.png",
-    linkedin: "https://www.linkedin.com/in/manan-modi-a728a01b/"
+    name: "Ankit Kamra",
+    role: "Founder @Covrzy",
+    image: "/images/Ankit.png",
+    linkedin: "https://www.linkedin.com/in/ankit-kamra-90498032/"
   },
   {
-    name: "Saurabh Gupta",
-    role: "Director of Product, Gojek",
-    image: "/images/speakers/speaker4.png",
-    linkedin: "https://www.linkedin.com/in/saurabh-gupta-03825615/"
+    name: "Krishan Kumar",
+    role: "Product and Analytics @Zepto | IIT Kanpur",
+    image: "/images/Krishan.png",
+    linkedin: "https://www.linkedin.com/in/krishan-kumar-218719152/"
   },
   {
-    name: "Palak Goel",
-    role: "Product Lead, Postman",
-    image: "/images/speakers/speaker5.png",
-    linkedin: "https://www.linkedin.com/in/palak-goel-b9b53322/"
+    name: "Tushar Soni",
+    role: "Product @ixigo | IIT Kanpur",
+    image: "/images/Tushar.png",
+    linkedin: "https://www.linkedin.com/in/tushar-soni-502b5320b/"
   },
   {
-    name: "Rahul Ganjoo",
-    role: "Former VP of Product, Zomato",
-    image: "/images/speakers/speaker6.png",
-    linkedin: "https://www.linkedin.com/in/rahul-ganjoo-020718/"
+    name: "Tanishka Verma",
+    role: "Product Marketing @Swiggy",
+    image: "/images/Tanishka.png",
+    linkedin: "https://www.linkedin.com/in/tanishka-verma-a339251a9/"
   }
 ];
 
