@@ -74,6 +74,15 @@ const events = [
     image: "/images/session8.jpeg",
     description: "Real Problems, Unreal Products",
     attendees: 200
+  },
+  {
+    id: 9,
+    title: "Campus to Corporate and Startups: Industry Insights",
+    date: "August 21, 2025",
+    location: "Virtual",
+    image: "/images/session9.jpeg",
+    description: "A session by a seasoned entrepreneur, Founder of Covrzy an insuretech company focused on insuring the SMEs",
+    attendees: 200
   }
 ];
 
