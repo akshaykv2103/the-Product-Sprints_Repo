@@ -627,8 +627,6 @@ const cohortReviews = [
               </div>
             </section>
 
-// Paste this after the "What Our Members Are Saying" section in src/App.tsx
-
 {/* --- PREVIOUS SPEAKERS SECTION STARTS HERE --- */}
 <section className="py-20 bg-[#0a0a0a] text-white">
   <div className="container mx-auto px-4">
