@@ -114,25 +114,25 @@ body {
 
 /* Animation classes */
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
 .animate-float-delayed {
-  animation: float-delayed 3s ease-in-out infinite;
+  animation: float-delayed 5s ease-in-out infinite;
 }
 
 .animate-gradient {
   background-size: 200% auto;
-  animation: gradient 4s linear infinite;
+  animation: gradient 6s linear infinite;
 }
 
 .animate-scroll {
-  animation: scroll 10s linear infinite;
+  animation: scroll 25s linear infinite;
 }
 
 /* --- ADDITIONS FOR MARQUEE --- */
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 22s linear infinite;
 }
 /* ----------------------------- */
 
