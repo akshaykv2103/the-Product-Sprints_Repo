@@ -5,63 +5,85 @@ import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react';
 const events = [
   {
     id: 1,
-    title: "Product Strategy Workshop",
-    date: "April 15, 2025",
+    title: "Product Management Fellowship",
+    date: "April 20, 2025",
     location: "Virtual",
-    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-    description: "Deep dive into product strategy with industry experts. Learn frameworks for product success.",
+    image: "/images/Session1.jpg",
+    description: "Deep dive into product strategy with industry experts. Learn frameworks for product success, for IITG students in collaboration with E-Cell IITG",
     attendees: 150
   },
   {
     id: 2,
-    title: "Growth Metrics Masterclass",
-    date: "April 22, 2025",
+    title: "Inter-IIT Product Case Competition",
+    date: "May 19, 2025",
     location: "Virtual",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-    description: "Master the art of tracking and analyzing key product metrics for sustainable growth.",
-    attendees: 120
+    image: "/images/session2.jpg",
+    description: "Master the art of tracking and analyzing key product metrics for sustainable growth, in collaboration with 6 IITs",
+    attendees: 600
   },
   {
     id: 3,
-    title: "User Research Intensive",
-    date: "May 1, 2025",
+    title: "PM Masterclass",
+    date: "June 7, 2025",
     location: "Virtual",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+    image: "/images/session3.jpg",
     description: "Learn advanced user research techniques from leading product managers.",
     attendees: 100
   },
   {
     id: 4,
-    title: "Product Launch Strategies",
-    date: "May 8, 2025",
+    title: "Guiding Interviews",
+    date: "July 12, 2025",
     location: "Virtual",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-    description: "Master the art of successful product launches with hands-on workshops.",
+    image: "/images/session4.jpg",
+    description: "Master the art of successful product interview cases",
     attendees: 130
   },
   {
     id: 5,
-    title: "AI in Product Management",
-    date: "May 15, 2025",
+    title: "How I'd Prepare For PM Interviews?",
+    date: "July 24, 2025",
     location: "Virtual",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-    description: "Explore how AI is transforming product management and learn to leverage it effectively.",
+    image: "/images/session5.jpg",
+    description: "From framing resume to solving product cases with a curated roadmap, with IIT Ropar",
     attendees: 200
   },
   {
     id: 6,
-    title: "Product Analytics Deep Dive",
-    date: "May 22, 2025",
+    title: "Ask Me Anything",
+    date: "July 26, 2025",
     location: "Virtual",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-    description: "Master product analytics tools and metrics that drive growth.",
+    image: "/images/session6.jpg",
+    description: "Master product analytics tools and metrics that drive growth with IIT Kanpur",
     attendees: 140
+  },
+  {
+    id: 7,
+    title: "GenAI for PM and startups",
+    date: "August 4, 2025",
+    location: "Virtual",
+    image: "/images/session7.jpg",
+    description: "What, Why and the roadmap, with IIT BHU students",
+    attendees: 200
+  },
+  {
+    id: 8,
+    title: "Ideathon | IIT Guwahati",
+    date: "August 9, 2025",
+    location: "Virtual",
+    image: "/images/session8.jpg",
+    description: "Real Problems, Unreal Products",
+    attendees: 200
   }
 ];
 
+// --- ADDED: Sort events by date in descending order (latest first) ---
+const sortedEvents = [...events].sort((a, b) => new Date(b.date) - new Date(a.date));
+
 const Events = () => {
   const [showAll, setShowAll] = useState(false);
-  const displayedEvents = showAll ? events : events.slice(0, 4);
+  // --- CHANGED: Use the new sortedEvents array ---
+  const displayedEvents = showAll ? sortedEvents : sortedEvents.slice(0, 4);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] py-32">
@@ -73,7 +95,7 @@ const Events = () => {
           className="text-center mb-16"
         >
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-            Upcoming Events
+            Our Events
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Join our exclusive events and workshops led by industry experts to accelerate your product management career
