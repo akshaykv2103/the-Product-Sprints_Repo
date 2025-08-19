@@ -25,6 +25,47 @@ function App() {
     { name: "The Product Club IIT Jodhpur", url: "/images/tpc_iitj.jpg" }
   ];
 
+// Paste this inside src/App.tsx, with your other data arrays
+
+const previousSpeakers = [
+  {
+    name: "Aakash Gupta",
+    role: "Senior PM, Google",
+    image: "/images/speakers/speaker1.png", // Use a background-removed .png
+    linkedin: "https://www.linkedin.com/in/aakash-gupta-71233219/"
+  },
+  {
+    name: "Anshumani Ruddra",
+    role: "Group PM, Google",
+    image: "/images/speakers/speaker2.png",
+    linkedin: "https://www.linkedin.com/in/anshumani/"
+  },
+  {
+    name: "Manan Modi",
+    role: "Senior PM, Microsoft",
+    image: "/images/speakers/speaker3.png",
+    linkedin: "https://www.linkedin.com/in/manan-modi-a728a01b/"
+  },
+  {
+    name: "Saurabh Gupta",
+    role: "Director of Product, Gojek",
+    image: "/images/speakers/speaker4.png",
+    linkedin: "https://www.linkedin.com/in/saurabh-gupta-03825615/"
+  },
+  {
+    name: "Palak Goel",
+    role: "Product Lead, Postman",
+    image: "/images/speakers/speaker5.png",
+    linkedin: "https://www.linkedin.com/in/palak-goel-b9b53322/"
+  },
+  {
+    name: "Rahul Ganjoo",
+    role: "Former VP of Product, Zomato",
+    image: "/images/speakers/speaker6.png",
+    linkedin: "https://www.linkedin.com/in/rahul-ganjoo-020718/"
+  }
+];
+
   // Add this new data array to App.js
 const cohortReviews = [
   {
@@ -585,6 +626,55 @@ const cohortReviews = [
                 </div>
               </div>
             </section>
+
+// Paste this after the "What Our Members Are Saying" section in src/App.tsx
+
+{/* --- PREVIOUS SPEAKERS SECTION STARTS HERE --- */}
+<section className="py-20 bg-[#0a0a0a] text-white">
+  <div className="container mx-auto px-4">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+    >
+      Our Previous Speakers
+    </motion.h2>
+  </div>
+
+  <div 
+    className="relative w-full overflow-hidden"
+    style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+  >
+    <div className="flex animate-marquee hover:animate-pause">
+      {/* Render speakers twice for a seamless loop */}
+      {previousSpeakers.concat(previousSpeakers).map((speaker, index) => (
+        <div key={index} className="speaker-card relative flex-shrink-0 w-80 mx-4 p-8 rounded-3xl overflow-hidden">
+          <div className="relative z-10 text-center">
+            <img 
+              src={speaker.image} 
+              alt={speaker.name} 
+              className="w-40 h-40 mx-auto object-cover grayscale mb-6"
+            />
+            <h3 className="text-2xl font-bold text-white mb-2">{speaker.name}</h3>
+            <p className="text-gray-400">{speaker.role}</p>
+          </div>
+          <a 
+            href={speaker.linkedin} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="absolute top-4 right-4 z-20 text-gray-500 hover:text-white transition-colors"
+            aria-label={`${speaker.name}'s LinkedIn Profile`}
+          >
+            <Linkedin size={24} />
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+{/* --- PREVIOUS SPEAKERS SECTION ENDS HERE --- */}
 
             {/* Meet the Mentor section */}
             <section className="py-32 bg-[#0a0a0a] relative overflow-hidden">
