@@ -80,7 +80,7 @@ const events = [
     title: "Campus to Corporate and Startups: Industry Insights",
     date: "August 21, 2025",
     location: "Virtual",
-    image: "/images/session9.jpeg",
+    image: "/images/session9.png",
     description: "A session by a seasoned entrepreneur, Founder of Covrzy an insuretech company focused on insuring the SMEs",
     attendees: 200
   }
