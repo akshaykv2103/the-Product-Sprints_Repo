@@ -8,7 +8,7 @@ const events = [
     title: "Product Management Fellowship",
     date: "April 20, 2025",
     location: "Virtual",
-    image: "/images/Session1.jpg",
+    image: "/images/session1.jpg",
     description: "Deep dive into product strategy with industry experts. Learn frameworks for product success, for IITG students in collaboration with E-Cell IITG",
     attendees: 150
   },
