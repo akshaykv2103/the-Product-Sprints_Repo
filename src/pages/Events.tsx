@@ -8,7 +8,7 @@ const events = [
     title: "Product Management Fellowship",
     date: "April 20, 2025",
     location: "Virtual",
-    image: "/images/session1.jpg",
+    image: "/images/session1.jpeg",
     description: "Deep dive into product strategy with industry experts. Learn frameworks for product success, for IITG students in collaboration with E-Cell IITG",
     attendees: 150
   },
@@ -17,7 +17,7 @@ const events = [
     title: "Inter-IIT Product Case Competition",
     date: "May 19, 2025",
     location: "Virtual",
-    image: "/images/session2.jpg",
+    image: "/images/session2.jpeg",
     description: "Master the art of tracking and analyzing key product metrics for sustainable growth, in collaboration with 6 IITs",
     attendees: 600
   },
@@ -26,7 +26,7 @@ const events = [
     title: "PM Masterclass",
     date: "June 7, 2025",
     location: "Virtual",
-    image: "/images/session3.jpg",
+    image: "/images/session3.jpeg",
     description: "Learn advanced user research techniques from leading product managers.",
     attendees: 100
   },
@@ -35,7 +35,7 @@ const events = [
     title: "Guiding Interviews",
     date: "July 12, 2025",
     location: "Virtual",
-    image: "/images/session4.jpg",
+    image: "/images/session4.jpeg",
     description: "Master the art of successful product interview cases",
     attendees: 130
   },
@@ -44,7 +44,7 @@ const events = [
     title: "How I'd Prepare For PM Interviews?",
     date: "July 24, 2025",
     location: "Virtual",
-    image: "/images/session5.jpg",
+    image: "/images/session5.jpeg",
     description: "From framing resume to solving product cases with a curated roadmap, with IIT Ropar",
     attendees: 200
   },
@@ -53,7 +53,7 @@ const events = [
     title: "Ask Me Anything",
     date: "July 26, 2025",
     location: "Virtual",
-    image: "/images/session6.jpg",
+    image: "/images/session6.jpeg",
     description: "Master product analytics tools and metrics that drive growth with IIT Kanpur",
     attendees: 140
   },
@@ -62,7 +62,7 @@ const events = [
     title: "GenAI for PM and startups",
     date: "August 4, 2025",
     location: "Virtual",
-    image: "/images/session7.jpg",
+    image: "/images/session7.jpeg",
     description: "What, Why and the roadmap, with IIT BHU students",
     attendees: 200
   },
@@ -71,7 +71,7 @@ const events = [
     title: "Ideathon | IIT Guwahati",
     date: "August 9, 2025",
     location: "Virtual",
-    image: "/images/session8.jpg",
+    image: "/images/session8.jpeg",
     description: "Real Problems, Unreal Products",
     attendees: 200
   }
