@@ -100,6 +100,18 @@ body {
 }
 /* ----------------------------- */
 
+/* --- ADDITION FOR SPEAKER CARD --- */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ------------------------------- */
+
+
 /* Animation classes */
 .animate-float {
   animation: float 6s ease-in-out infinite;
@@ -190,6 +202,28 @@ body {
   @apply bg-[#0a0a0a] border border-gray-800 text-white px-6 py-3 rounded-xl font-semibold 
         hover:bg-[#111111] transition-all transform hover:scale-105 duration-300;
 }
+
+/* --- STYLES FOR SPEAKER CARD LIGHTING EFFECT --- */
+.speaker-card {
+  background-color: #1a1a1a;
+}
+
+.speaker-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: conic-gradient(
+    transparent,
+    rgba(168, 85, 247, 0.5), /* Purple light */
+    transparent 30%
+  );
+  animation: rotate 6s linear infinite;
+  z-index: 1;
+}
+/* ------------------------------------------- */
 
 /* --- ADDITIONS FOR MARQUEE --- */
 @layer utilities {
