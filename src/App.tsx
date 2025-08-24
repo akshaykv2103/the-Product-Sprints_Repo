@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { ArrowRight, CheckCircle2, Users2, Zap, MessageSquare, Linkedin, Phone, Star, FileCheck, Brain, Target, Rocket, PenTool, BookOpen, Trophy, Sparkles, GraduationCap } from 'lucide-react';
 import Events from './pages/Events';
 import Timeline from './pages/Timeline';
-import Mentors from './pages/Mentors'; // <-- 1. IMPORT THE NEW COMPONENT
+import Mentors from './pages/Mentors';
 
 function App() {
   const [activeReview, setActiveReview] = useState(0);
@@ -142,13 +142,18 @@ function App() {
               >
                 <Linkedin className="w-6 h-6" />
               </a>
-              {/* <-- 2. ADD THE NEW LINK --> */}
-              <Link
-                to="/mentors"
-                className="text-gray-400 hover:text-white transition-colors text-lg"
-              >
-                Schedule 1:1 Call
-              </Link>
+              
+              {/* --- MODIFIED SECTION START --- */}
+              <div className="glowing-box">
+                <Link
+                  to="/mentors"
+                  className="text-white hover:text-gray-200 transition-colors text-lg font-medium"
+                >
+                  Schedule 1:1 Call
+                </Link>
+              </div>
+              {/* --- MODIFIED SECTION END --- */}
+
               <Link
                 to="/events"
                 className="text-gray-400 hover:text-white transition-colors text-lg"
@@ -184,10 +189,10 @@ function App() {
       <Routes>
         <Route path="/events" element={<Events />} />
         <Route path="/timeline" element={<Timeline />} />
-        {/* <-- 3. ADD THE NEW ROUTE --> */}
         <Route path="/mentors" element={<Mentors />} />
         <Route path="/" element={
           <>
+            {/* The rest of your homepage content remains the same... */}
             {/* Hero section */}
             <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
               <video
