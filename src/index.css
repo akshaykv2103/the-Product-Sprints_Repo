@@ -232,3 +232,45 @@ body {
   }
 }
 /* ----------------------------- */
+/* Add this to the end of src/index.css */
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.glowing-box {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem; /* 12px */
+  background: #1a1a1a; /* A slightly lighter dark color */
+  overflow: hidden;
+}
+
+.glowing-box::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(90deg, #ff00ff, #8a2be2, #00ffff, #ff00ff);
+  background-size: 400%;
+  border-radius: 0.875rem; /* 14px */
+  animation: glowing 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.7;
+}
+
+.glowing-box:hover::before {
+  opacity: 1;
+}
