@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Zap, Briefcase } from 'lucide-react';
+import { Star, Zap, Briefcase, Linkedin } from 'lucide-react';
 
 // You can add as many mentors as you want here
 const mentors = [
@@ -12,7 +12,8 @@ const mentors = [
     reviews: 120,
     sessions: "500+",
     experience: "9+ years",
-    formLink: "https://your-google-form-link.com" // IMPORTANT: Add your Google Form link here
+    linkedin: "https://www.linkedin.com/in/rohitverma141/", // <-- ADDED LINKEDIN
+    formLink: "https://your-google-form-link.com"
   },
   {
     name: "Vaibhav Chandra",
@@ -22,7 +23,8 @@ const mentors = [
     reviews: 85,
     sessions: "300+",
     experience: "5+ years",
-    formLink: "https://your-google-form-link.com" // IMPORTANT: Add your Google Form link here
+    linkedin: "https://www.linkedin.com/in/vaibhav-chandra7714/", // <-- ADDED LINKEDIN
+    formLink: "https://your-google-form-link.com"
   },
   {
     name: "Ankit Kamra",
@@ -32,7 +34,8 @@ const mentors = [
     reviews: 95,
     sessions: "400+",
     experience: "7+ years",
-    formLink: "https://your-google-form-link.com" // IMPORTANT: Add your Google Form link here
+    linkedin: "https://www.linkedin.com/in/ankit-kamra-90498032/", // <-- ADDED LINKEDIN
+    formLink: "https://your-google-form-link.com"
   },
 ];
 
@@ -49,7 +52,21 @@ const MentorCard = ({ mentor, index }: { mentor: typeof mentors[0], index: numbe
         alt={mentor.name}
         className="w-32 h-32 rounded-full object-cover mx-auto mb-6 ring-4 ring-gray-800"
       />
-      <h3 className="text-2xl font-bold text-center text-white mb-2">{mentor.name}</h3>
+      {/* --- MODIFIED SECTION START --- */}
+      <div className="flex justify-center items-center gap-4 mb-2">
+        <h3 className="text-2xl font-bold text-center text-white">{mentor.name}</h3>
+        <a 
+          href={mentor.linkedin} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-gray-500 hover:text-white transition-colors"
+          aria-label={`${mentor.name}'s LinkedIn Profile`}
+        >
+          <Linkedin size={22} />
+        </a>
+      </div>
+      {/* --- MODIFIED SECTION END --- */}
+
       <p className="text-gray-400 text-center mb-6">{mentor.intro}</p>
 
       <div className="flex justify-center items-center gap-6 text-gray-300 mb-6">
