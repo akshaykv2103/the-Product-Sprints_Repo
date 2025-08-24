@@ -5,16 +5,16 @@ import { useInView } from 'react-intersection-observer';
 import { ArrowRight, CheckCircle2, Users2, Zap, MessageSquare, Linkedin, Phone, Star, FileCheck, Brain, Target, Rocket, PenTool, BookOpen, Trophy, Sparkles, GraduationCap } from 'lucide-react';
 import Events from './pages/Events';
 import Timeline from './pages/Timeline';
+import Mentors from './pages/Mentors'; // <-- 1. IMPORT THE NEW COMPONENT
 
 function App() {
   const [activeReview, setActiveReview] = useState(0);
-  const [activePartner, setActivePartner] = useState(0); // State for the new partner slider
-  const cardRefs = useRef([]);
+  const [activePartner, setActivePartner] = useState(0);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleCards, setVisibleCards] = useState(new Set());
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
 
-  // Data for the new Partner Logos section
   const partnerLogos = [
     { name: "E-Cell IIT BHU", url: "/images/ecell_iitbhu.png" },
     { name: "E-Cell IIT Guwahati", url: "/images/ecell_iitg.png" },
@@ -25,74 +25,23 @@ function App() {
     { name: "The Product Club IIT Jodhpur", url: "/images/tpc_iitj.jpg" }
   ];
 
-// Paste this inside src/App.tsx, with your other data arrays
+  const previousSpeakers = [
+    { name: "Vaibhav Chandra", role: "Growth Manager @PocketFM | IIT Kanpur", image: "/images/Vaibhav.png", linkedin: "https://www.linkedin.com/in/vaibhav-chandra7714/" },
+    { name: "Vinny Akkal", role: "PM 2 @Paytm Money", image: "/images/Vinny.png", linkedin: "https://www.linkedin.com/in/vinny-akkal-8b2486152/" },
+    { name: "Ankit Kamra", role: "Founder @Covrzy", image: "/images/Ankit.png", linkedin: "https://www.linkedin.com/in/ankit-kamra-90498032/" },
+    { name: "Krishan Kumar", role: "Product and Analytics @Zepto | IIT Kanpur", image: "/images/Krishan.png", linkedin: "https://www.linkedin.com/in/krishan-kumar-218719152/" },
+    { name: "Tushar Soni", role: "Product @ixigo | IIT Kanpur", image: "/images/Tushar.png", linkedin: "https://www.linkedin.com/in/tushar-soni-502b5320b/" },
+    { name: "Tanishka Verma", role: "Product Marketing @Swiggy", image: "/images/Tanishka.png", linkedin: "https://www.linkedin.com/in/tanishka-verma-a339251a9/" }
+  ];
 
-const previousSpeakers = [
-  {
-    name: "Vaibhav Chandra",
-    role: "Growth Manager @PocketFM | IIT Kanpur",
-    image: "/images/Vaibhav.png", // Use a background-removed .png
-    linkedin: "https://www.linkedin.com/in/vaibhav-chandra7714/"
-  },
-  {
-    name: "Vinny Akkal",
-    role: "PM 2 @Paytm Money",
-    image: "/images/Vinny.png",
-    linkedin: "https://www.linkedin.com/in/vinny-akkal-8b2486152/"
-  },
-  {
-    name: "Ankit Kamra",
-    role: "Founder @Covrzy",
-    image: "/images/Ankit.png",
-    linkedin: "https://www.linkedin.com/in/ankit-kamra-90498032/"
-  },
-  {
-    name: "Krishan Kumar",
-    role: "Product and Analytics @Zepto | IIT Kanpur",
-    image: "/images/Krishan.png",
-    linkedin: "https://www.linkedin.com/in/krishan-kumar-218719152/"
-  },
-  {
-    name: "Tushar Soni",
-    role: "Product @ixigo | IIT Kanpur",
-    image: "/images/Tushar.png",
-    linkedin: "https://www.linkedin.com/in/tushar-soni-502b5320b/"
-  },
-  {
-    name: "Tanishka Verma",
-    role: "Product Marketing @Swiggy",
-    image: "/images/Tanishka.png",
-    linkedin: "https://www.linkedin.com/in/tanishka-verma-a339251a9/"
-  }
-];
-
-  // Add this new data array to App.js
-const cohortReviews = [
-  {
-    quote: "Teaching the thought process rather than just theory. At the end of the day as we are supposed to do this.",
-    author: "Ritesh, IIT Kanpur"
-  },
-  {
-    quote: "Examples in sessions were great, and it very represents the real job profile.",
-    author: "Shiva, IIT Guwahati"
-  },
-  {
-    quote: "The pace was just right, with perfect discussions and peer interactions.",
-    author: "Vidushi, IIT Indore"
-  },
-  {
-    quote: "The learning experience was collaborative and thoughtful. The instructors knew exactly how to challenge us in a way that pushed our thinking.",
-    author: "Shivam, IIT Indore"
-  },
-  {
-    quote: "The key highlights of the cohort includes KPI trees and metric sessions which involves real world cases.",
-    author: "Barigala, IITG"
-  },
-  {
-    quote: "The key highlights of the cohort includes UI/UX ideations and RCA cases which involves industrial insights.",
-    author: "Amey, IIT Kanpur"
-  }
-];
+  const cohortReviews = [
+    { quote: "Teaching the thought process rather than just theory. At the end of the day as we are supposed to do this.", author: "Ritesh, IIT Kanpur" },
+    { quote: "Examples in sessions were great, and it very represents the real job profile.", author: "Shiva, IIT Guwahati" },
+    { quote: "The pace was just right, with perfect discussions and peer interactions.", author: "Vidushi, IIT Indore" },
+    { quote: "The learning experience was collaborative and thoughtful. The instructors knew exactly how to challenge us in a way that pushed our thinking.", author: "Shivam, IIT Indore" },
+    { quote: "The key highlights of the cohort includes KPI trees and metric sessions which involves real world cases.", author: "Barigala, IITG" },
+    { quote: "The key highlights of the cohort includes UI/UX ideations and RCA cases which involves industrial insights.", author: "Amey, IIT Kanpur" }
+  ];
 
   const companyLogos = [
     { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
@@ -115,7 +64,7 @@ const cohortReviews = [
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleCards(prev => new Set([...prev, entry.target.dataset.index]));
+            setVisibleCards(prev => new Set([...prev, (entry.target as HTMLElement).dataset.index]));
           }
         });
       },
@@ -129,7 +78,14 @@ const cohortReviews = [
     return () => observer.disconnect();
   }, []);
 
-  // Combined useEffect for both sliders
+  const reviews = [
+    { text: "The Product Sprints gave me exactly what I needed to land a PM role—real-world problem-solving, hands-on product challenges, and mentorship from top industry leaders. The structured sprints and case studies helped me think like a PM, and the exclusive network opened doors I never imagined. Highly recommend!🚀", name: "Akshay K. Verma", college: "IIT Kanpur", role: "Product Manager, HDFC Securities", linkedin: "https://www.linkedin.com/in/akshay-kumar-verma-326b03202/", image: "/images/akv.png" },
+    { text: "The Product Sprints gave me exactly what I needed to land a PM role—real-world problem-solving, hands-on product challenges, and mentorship from top industry leaders. The structured sprints and case studies helped me think like a PM, and the exclusive network opened doors I never imagined. Highly recommend!🚀", name: "Pratibha Anand", college: "IIT Kanpur", role: "Business Analyst, HiLabs", linkedin: "linkedin.com/in/pratibha-anand-932805210/", image: "/images/pa.png" },
+    { text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.", name: "Muskan Goel", college: "IIT Roorkee", role: "Business Analyst, Tata 1mg", linkedin: "https://www.linkedin.com/in/-muskan-goel24/", image: "/images/mg.png" },
+    { text: "The Product Sprints helped me transition from engineering to product management seamlessly. The practical approach and structured learning path were exactly what I needed to build confidence in my product decisions.", name: "Afraz Jamal", college: "IIT Kanpur", role: "Strategy Associate, BatterySmart", linkedin: "https://www.linkedin.com/in/afraz-jamal-081018232/", image: "/images/aj.png" },
+    { text: "What sets The Product Sprints apart is their practical approach to product management. The community's support in reviewing my work deliverables and the structured learning path helped me transition from engineering to product management seamlessly.", name: "Aditya Gupta", college: "IIT Ropar", role: "Associate Product Manager, Zomato", linkedin: "https://www.linkedin.com/in/aditya-gupta-pm/", image: "/images/ag.png" }
+  ];
+
   useEffect(() => {
     const reviewInterval = setInterval(() => {
       setActiveReview((prev) => (prev + 1) % reviews.length);
@@ -137,13 +93,13 @@ const cohortReviews = [
 
     const partnerInterval = setInterval(() => {
       setActivePartner((prev) => (prev + 1) % partnerLogos.length);
-    }, 3000); // Partners slide a bit faster
+    }, 3000);
 
     return () => {
       clearInterval(reviewInterval);
       clearInterval(partnerInterval);
     };
-  }, [partnerLogos.length]); // Added dependency
+  }, [reviews.length, partnerLogos.length]);
 
   const scrollToBlogs = () => {
     const blogsSection = document.getElementById('blogs-section');
@@ -156,104 +112,29 @@ const cohortReviews = [
   };
 
   const uspItems = [
-  {
-    title: "Crack Product Strategy",
-    description:
-      "Use first principles, JTBD, and competitive insights to define winning product strategies. Learn to craft compelling problem statements that align with business goals.",
-    icon: Target,
-  },
-  {
-    title: "Prioritize Like a Pro",
-    description:
-      "Master prioritization frameworks like RICE and MoSCoW to confidently decide what to build next. Structure your product roadmap with impact-focused decisions.",
-    icon: PenTool,
-  },
-  {
-    title: "Drive Growth with Metrics",
-    description:
-      "Understand and apply growth frameworks like AARRR. Learn to define north star metrics, set up experiments, and make data-informed product bets.",
-    icon: Rocket,
-  },
-  {
-    title: "Build and Communicate PRDs",
-    description:
-      "Translate user problems into clear PRDs and wireframes. Collaborate with design and tech teams with confidence and clarity.",
-    icon: Brain,
-  },
-  {
-    title: "Ace PM Interviews",
-    description:
-      "Break down case studies, structure product thinking answers, and handle guesstimates with real-world mock prep. Build your product portfolio and resume.",
-    icon: Star,
-  },
-  {
-    title: "Manage Stakeholders Effectively",
-    description:
-      "Learn the language of engineering, design, and business. Manage cross-functional teams and influence decisions without authority.",
-    icon: Users2,
-  }
-];
-
-
-  const reviews = [
-    {
-      text: "The Product Sprints gave me exactly what I needed to land a PM role—real-world problem-solving, hands-on product challenges, and mentorship from top industry leaders. The structured sprints and case studies helped me think like a PM, and the exclusive network opened doors I never imagined. Highly recommend!🚀",
-      name: "Akshay K. Verma",
-      college: "IIT Kanpur",
-      role: "Product Manager, HDFC Securities",
-      linkedin: "https://www.linkedin.com/in/akshay-kumar-verma-326b03202/",
-      image: "/images/akv.png"
-    },
-    {
-      text: "The Product Sprints gave me exactly what I needed to land a PM role—real-world problem-solving, hands-on product challenges, and mentorship from top industry leaders. The structured sprints and case studies helped me think like a PM, and the exclusive network opened doors I never imagined. Highly recommend!🚀",
-      name: "Pratibha Anand",
-      college: "IIT Kanpur",
-      role: "Business Analyst, HiLabs",
-      linkedin: "linkedin.com/in/pratibha-anand-932805210/",
-      image: "/images/pa.png"
-    },
-    {
-      text: "Joining The Product Sprints was a game-changer for my product management career. The community's feedback on my PRDs and product strategies was invaluable. The mentorship and peer learning helped me develop a strategic mindset that's essential for product leadership.",
-      name: "Muskan Goel",
-      college: "IIT Roorkee",
-      role: "Business Analyst, Tata 1mg",
-      linkedin: "https://www.linkedin.com/in/-muskan-goel24/",
-      image: "/images/mg.png"
-    },
-    {
-      text: "The Product Sprints helped me transition from engineering to product management seamlessly. The practical approach and structured learning path were exactly what I needed to build confidence in my product decisions.",
-      name: "Afraz Jamal",
-      college: "IIT Kanpur",
-      role: "Strategy Associate, BatterySmart",
-      linkedin: "https://www.linkedin.com/in/afraz-jamal-081018232/",
-      image: "/images/aj.png"
-    },
-    {
-      text: "What sets The Product Sprints apart is their practical approach to product management. The community's support in reviewing my work deliverables and the structured learning path helped me transition from engineering to product management seamlessly.",
-      name: "Aditya Gupta",
-      college: "IIT Ropar",
-      role: "Associate Product Manager, Zomato",
-      linkedin: "https://www.linkedin.com/in/aditya-gupta-pm/",
-      image: "/images/ag.png"
-    }
+    { title: "Crack Product Strategy", description: "Use first principles, JTBD, and competitive insights to define winning product strategies. Learn to craft compelling problem statements that align with business goals.", icon: Target },
+    { title: "Prioritize Like a Pro", description: "Master prioritization frameworks like RICE and MoSCoW to confidently decide what to build next. Structure your product roadmap with impact-focused decisions.", icon: PenTool },
+    { title: "Drive Growth with Metrics", description: "Understand and apply growth frameworks like AARRR. Learn to define north star metrics, set up experiments, and make data-informed product bets.", icon: Rocket },
+    { title: "Build and Communicate PRDs", description: "Translate user problems into clear PRDs and wireframes. Collaborate with design and tech teams with confidence and clarity.", icon: Brain },
+    { title: "Ace PM Interviews", description: "Break down case studies, structure product thinking answers, and handle guesstimates with real-world mock prep. Build your product portfolio and resume.", icon: Star },
+    { title: "Manage Stakeholders Effectively", description: "Learn the language of engineering, design, and business. Manage cross-functional teams and influence decisions without authority.", icon: Users2 }
   ];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
-      {/* Navigation section */}
       <nav className="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-gray-800">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
             <Link to="/">
-              <img 
+              <img
                 src="/images/m2logo.gif"
-                alt="The Product Sprints Logo" 
+                alt="The Product Sprints Logo"
                 className="h-20 md:h-28 w-auto max-w-none"
               />
             </Link>
-            
+
             <div className="flex items-center gap-6">
-              <a 
+              <a
                 href="https://www.linkedin.com/company/theproductsprints/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -261,26 +142,33 @@ const cohortReviews = [
               >
                 <Linkedin className="w-6 h-6" />
               </a>
-              <Link 
+              {/* <-- 2. ADD THE NEW LINK --> */}
+              <Link
+                to="/mentors"
+                className="text-gray-400 hover:text-white transition-colors text-lg"
+              >
+                Schedule 1:1 Call
+              </Link>
+              <Link
                 to="/events"
                 className="text-gray-400 hover:text-white transition-colors text-lg"
               >
                 Events
               </Link>
-               <Link 
+              <Link
                 to="/timeline"
                 className="text-gray-400 hover:text-white transition-colors text-lg"
               >
                 Timeline
               </Link>
-              <a 
-                href="#blogs-section" 
+              <a
+                href="#blogs-section"
                 onClick={scrollToBlogs}
                 className="text-gray-400 hover:text-white transition-colors text-lg"
               >
                 Blog
               </a>
-              <a 
+              <a
                 href="https://cohort2theproductsprintsform.fillout.com/t/rpsgZ1DQrkus"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -293,28 +181,29 @@ const cohortReviews = [
         </div>
       </nav>
 
-    <Routes>
+      <Routes>
         <Route path="/events" element={<Events />} />
-       <Route path="/timeline" element={<Timeline />} />
+        <Route path="/timeline" element={<Timeline />} />
+        {/* <-- 3. ADD THE NEW ROUTE --> */}
+        <Route path="/mentors" element={<Mentors />} />
         <Route path="/" element={
-
           <>
             {/* Hero section */}
             <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
-              <video 
-                autoPlay 
-                loop 
-                muted 
+              <video
+                autoPlay
+                loop
+                muted
                 playsInline
                 className="absolute w-full h-full object-cover opacity-30"
                 style={{ filter: 'brightness(1.4)' }}
               >
                 <source src="bg.mp4" type="video/mp4" />
               </video>
-              
+
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
 
-              <motion.div 
+              <motion.div
                 style={{ y }}
                 className="container mx-auto px-4 relative z-10 mt-[-100px]"
               >
@@ -327,7 +216,7 @@ const cohortReviews = [
                     <h1 className="text-6xl md:text-8xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 animate-gradient leading-tight">
                       Join The Product Sprints Community
                     </h1>
-                    
+
                     <p className="text-xl md:text-2xl mb-12 text-gray-300 leading-relaxed">
                       Connect with product leaders, share insights, and accelerate your product management career
                     </p>
@@ -341,9 +230,9 @@ const cohortReviews = [
                     </div>
 
                     <div className="flex flex-col items-center gap-8">
-                      <motion.a 
-                        href="https://chat.whatsapp.com/LEMwE3NgrrAJPGFYUz3qok" 
-                        target="_blank" 
+                      <motion.a
+                        href="https://chat.whatsapp.com/LEMwE3NgrrAJPGFYUz3qok"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="group bg-white text-black px-10 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center gap-3 transform hover:scale-105"
                         whileHover={{ scale: 1.05 }}
@@ -367,7 +256,7 @@ const cohortReviews = [
             {/* Outcomes section */}
             <section className="py-32 bg-[#0a0a0a] text-white relative">
               <div className="container mx-auto px-6">
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -375,7 +264,7 @@ const cohortReviews = [
                 >
                   Outcomes You'll Get
                 </motion.h2>
-                
+
                 <div className="max-w-6xl mx-auto">
                   <div className="space-y-40">
                     {uspItems.map((item, index) => (
@@ -391,7 +280,7 @@ const cohortReviews = [
                         <div className="flex flex-col items-start relative">
                           <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-purple-600 to-pink-600"></div>
                           <div className="flex items-center gap-6 mb-6">
-                            <motion.div 
+                            <motion.div
                               className="w-16 h-16 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl flex items-center justify-center backdrop-blur-xl"
                               whileHover={{ scale: 1.1, rotate: 5 }}
                             >
@@ -412,116 +301,108 @@ const cohortReviews = [
               </div>
             </section>
 
-            {/* --- NEW PARTNER SECTION STARTS HERE --- */}
-            {/* --- UPDATED PARTNER SECTION --- */}
-<section className="py-20 bg-[#0a0a0a]">
-  <div className="container mx-auto px-4">
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
-    >
-      Proudly Partnered With
-    </motion.h2>
-    
-    {/* Container for the logo image */}
-    <div className="relative h-24 flex items-center justify-center">
-      {partnerLogos.map((logo, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: index === activePartner ? 1 : 0,
-            scale: index === activePartner ? 1 : 0.95,
-            y: index === activePartner ? 0 : 10,
-          }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <img
-            src={logo.url}
-            alt={logo.name}
-            className="max-h-20 max-w-[200px] object-contain"
-          />
-        </motion.div>
-      ))}
-    </div>
+            {/* Partner Section */}
+            <section className="py-20 bg-[#0a0a0a]">
+              <div className="container mx-auto px-4">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+                >
+                  Proudly Partnered With
+                </motion.h2>
 
-    {/* NEW: Container for the partner name */}
-    <div className="relative h-8 mt-4 flex items-center justify-center">
-      {partnerLogos.map((partner, index) => (
-        <motion.p
-          key={partner.name}
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: index === activePartner ? 1 : 0,
-            y: index === activePartner ? 0 : 5,
-          }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
-          className="absolute text-center text-gray-400 text-lg"
-        >
-          {partner.name}
-        </motion.p>
-      ))}
-    </div>
+                <div className="relative h-24 flex items-center justify-center">
+                  {partnerLogos.map((logo, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: index === activePartner ? 1 : 0,
+                        scale: index === activePartner ? 1 : 0.95,
+                        y: index === activePartner ? 0 : 10,
+                      }}
+                      transition={{ duration: 0.5, ease: 'easeInOut' }}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <img
+                        src={logo.url}
+                        alt={logo.name}
+                        className="max-h-20 max-w-[200px] object-contain"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
 
-    {/* The navigation dots */}
-    <div className="flex justify-center mt-8 gap-3">
-      {partnerLogos.map((_, index) => (
-        <motion.button
-          key={index}
-          onClick={() => setActivePartner(index)}
-          className={`w-3 h-3 rounded-full transition-all duration-300 ${
-            index === activePartner
-              ? 'bg-purple-600 scale-125'
-              : 'bg-gray-700 hover:bg-gray-600'
-          }`}
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
-        />
-      ))}
-    </div>
-  </div>
-</section>
-            {/* --- NEW PARTNER SECTION ENDS HERE --- */}
+                <div className="relative h-8 mt-4 flex items-center justify-center">
+                  {partnerLogos.map((partner, index) => (
+                    <motion.p
+                      key={partner.name}
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: index === activePartner ? 1 : 0,
+                        y: index === activePartner ? 0 : 5,
+                      }}
+                      transition={{ duration: 0.5, ease: 'easeInOut' }}
+                      className="absolute text-center text-gray-400 text-lg"
+                    >
+                      {partner.name}
+                    </motion.p>
+                  ))}
+                </div>
 
-{/* --- COHORT REVIEW MARQUEE SECTION STARTS HERE --- */}
-<section className="py-20 bg-[#0a0a0a] text-white">
-  <div className="container mx-auto px-4">
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
-    >
-      What Our Members Are Saying
-    </motion.h2>
-  </div>
-  
-  <div 
-    className="relative w-full overflow-hidden"
-    style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
-  >
-    <div className="flex animate-marquee hover:animate-pause">
-      {/* We render the reviews twice for a seamless loop */}
-      {cohortReviews.concat(cohortReviews).map((review, index) => (
-        <div key={index} className="flex-shrink-0 w-96 mx-4 p-8 bg-[#0f0f0f] border border-gray-800 rounded-2xl">
-          <p className="text-gray-300 mb-6">"{review.quote}"</p>
-          <footer className="text-white font-bold">{review.author}</footer>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-{/* --- COHORT REVIEW MARQUEE SECTION ENDS HERE --- */}
+                <div className="flex justify-center mt-8 gap-3">
+                  {partnerLogos.map((_, index) => (
+                    <motion.button
+                      key={index}
+                      onClick={() => setActivePartner(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activePartner
+                          ? 'bg-purple-600 scale-125'
+                          : 'bg-gray-700 hover:bg-gray-600'
+                        }`}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Cohort Review Marquee Section */}
+            <section className="py-20 bg-[#0a0a0a] text-white">
+              <div className="container mx-auto px-4">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+                >
+                  What Our Members Are Saying
+                </motion.h2>
+              </div>
+
+              <div
+                className="relative w-full overflow-hidden"
+                style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+              >
+                <div className="flex animate-marquee hover:animate-pause">
+                  {cohortReviews.concat(cohortReviews).map((review, index) => (
+                    <div key={index} className="flex-shrink-0 w-96 mx-4 p-8 bg-[#0f0f0f] border border-gray-800 rounded-2xl">
+                      <p className="text-gray-300 mb-6">"{review.quote}"</p>
+                      <footer className="text-white font-bold">{review.author}</footer>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
 
             {/* Company Logos Section */}
             <section className="py-20 bg-[#0a0a0a] relative overflow-hidden">
               <div className="container mx-auto px-4">
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -529,19 +410,19 @@ const cohortReviews = [
                 >
                   Our Alumni Work At Leading Companies
                 </motion.h2>
-                
+
                 <div className="relative">
                   <div className="flex space-x-12 animate-scroll">
                     <div className="flex space-x-12 min-w-full">
                       {companyLogos.map((logo, index) => (
-                        <motion.div 
-                          key={index} 
+                        <motion.div
+                          key={index}
                           className="w-32 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
                           whileHover={{ scale: 1.1 }}
                         >
-                          <img 
-                            src={logo.url} 
-                            alt={logo.name} 
+                          <img
+                            src={logo.url}
+                            alt={logo.name}
                             className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-50 hover:opacity-100 transition-opacity duration-300"
                           />
                         </motion.div>
@@ -549,14 +430,14 @@ const cohortReviews = [
                     </div>
                     <div className="flex space-x-12 min-w-full" aria-hidden="true">
                       {companyLogos.map((logo, index) => (
-                        <motion.div 
-                          key={`repeat-${index}`} 
+                        <motion.div
+                          key={`repeat-${index}`}
                           className="w-32 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
                           whileHover={{ scale: 1.1 }}
                         >
-                          <img 
-                            src={logo.url} 
-                            alt={logo.name} 
+                          <img
+                            src={logo.url}
+                            alt={logo.name}
                             className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-50 hover:opacity-100 transition-opacity duration-300"
                           />
                         </motion.div>
@@ -572,15 +453,15 @@ const cohortReviews = [
               <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 to-pink-900/5"></div>
               </div>
-              
+
               <div className="container mx-auto px-6 relative">
                 <div className="max-w-4xl mx-auto text-center">
                   <h2 className="text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
                     Crack Interviews & Build Products with Confidence
                   </h2>
-                  
+
                   <p className="text-xl text-gray-400 mb-16 leading-relaxed">
-                    Learn the technical skills that set you apart. Master system design, APIs, data pipelines, 
+                    Learn the technical skills that set you apart. Master system design, APIs, data pipelines,
                     and more in this hands-on cohort.
                   </p>
 
@@ -596,27 +477,27 @@ const cohortReviews = [
                   </div>
 
                   <div className="flex flex-col gap-6">
-                    <a 
-                      href="https://cohort2theproductsprintsform.fillout.com/t/rpsgZ1DQrkus" 
-                      target="_blank" 
+                    <a
+                      href="https://cohort2theproductsprintsform.fillout.com/t/rpsgZ1DQrkus"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:opacity-90 transition-all transform hover:scale-105 duration-300"
                     >
                       Apply for the Cohort Now!
                     </a>
 
-                    <a 
-                      href="https://drive.google.com/file/d/12CM4xfvmEVGfSWQhkYi3zeZ5Gaa_jpJr/view?usp=sharing" 
-                      target="_blank" 
+                    <a
+                      href="https://drive.google.com/file/d/12CM4xfvmEVGfSWQhkYi3zeZ5Gaa_jpJr/view?usp=sharing"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="bg-[#0a0a0a] border border-gray-800 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-[#111111] transition-all transform hover:scale-105 duration-300"
                     >
                       Download Curriculum
                     </a>
 
-                    <a 
-                      href="https://cohort2theproductsprintsform.fillout.com/t/rpsgZ1DQrkus" 
-                      target="_blank" 
+                    <a
+                      href="https://cohort2theproductsprintsform.fillout.com/t/rpsgZ1DQrkus"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:opacity-90 transition-all transform hover:scale-105 duration-300"
                     >
@@ -627,52 +508,50 @@ const cohortReviews = [
               </div>
             </section>
 
-{/* --- PREVIOUS SPEAKERS SECTION STARTS HERE --- */}
-<section className="py-20 bg-[#0a0a0a] text-white">
-  <div className="container mx-auto px-4">
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
-    >
-      Our Previous Speakers
-    </motion.h2>
-  </div>
+            {/* Previous Speakers Section */}
+            <section className="py-20 bg-[#0a0a0a] text-white">
+              <div className="container mx-auto px-4">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+                >
+                  Our Previous Speakers
+                </motion.h2>
+              </div>
 
-  <div 
-    className="relative w-full overflow-hidden"
-    style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
-  >
-    <div className="flex animate-marquee hover:animate-pause">
-      {/* Render speakers twice for a seamless loop */}
-      {previousSpeakers.concat(previousSpeakers).map((speaker, index) => (
-        <div key={index} className="speaker-card relative flex-shrink-0 w-80 mx-4 p-8 rounded-3xl overflow-hidden">
-          <div className="relative z-10 text-center">
-            <img 
-              src={speaker.image} 
-              alt={speaker.name} 
-              className="w-40 h-40 mx-auto object-cover grayscale mb-6"
-            />
-            <h3 className="text-2xl font-bold text-white mb-2">{speaker.name}</h3>
-            <p className="text-gray-400">{speaker.role}</p>
-          </div>
-          <a 
-            href={speaker.linkedin} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="absolute top-4 right-4 z-20 text-gray-500 hover:text-white transition-colors"
-            aria-label={`${speaker.name}'s LinkedIn Profile`}
-          >
-            <Linkedin size={24} />
-          </a>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-{/* --- PREVIOUS SPEAKERS SECTION ENDS HERE --- */}
+              <div
+                className="relative w-full overflow-hidden"
+                style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+              >
+                <div className="flex animate-marquee hover:animate-pause">
+                  {previousSpeakers.concat(previousSpeakers).map((speaker, index) => (
+                    <div key={index} className="speaker-card relative flex-shrink-0 w-80 mx-4 p-8 rounded-3xl overflow-hidden">
+                      <div className="relative z-10 text-center">
+                        <img
+                          src={speaker.image}
+                          alt={speaker.name}
+                          className="w-40 h-40 mx-auto object-cover grayscale mb-6"
+                        />
+                        <h3 className="text-2xl font-bold text-white mb-2">{speaker.name}</h3>
+                        <p className="text-gray-400">{speaker.role}</p>
+                      </div>
+                      <a
+                        href={speaker.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute top-4 right-4 z-20 text-gray-500 hover:text-white transition-colors"
+                        aria-label={`${speaker.name}'s LinkedIn Profile`}
+                      >
+                        <Linkedin size={24} />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
 
             {/* Meet the Mentor section */}
             <section className="py-32 bg-[#0a0a0a] relative overflow-hidden">
@@ -683,12 +562,12 @@ const cohortReviews = [
                       Meet Your Mentor
                     </h2>
                   </div>
-                  
+
                   <div className="bg-[#0f0f0f] rounded-3xl p-8 md:p-12 border border-gray-800">
                     <div className="flex flex-col md:flex-row items-center gap-12">
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full blur-xl"></div>
-                        <img 
+                        <img
                           src="/images/rohitfp.png"
                           alt="Rohit Verma"
                           className="w-64 h-64 rounded-full object-cover relative z-10 ring-4 ring-[#0a0a0a]"
@@ -697,7 +576,7 @@ const cohortReviews = [
                           <Star className="w-6 h-6 text-white" />
                         </div>
                       </div>
-                      
+
                       <div className="flex-1 md:text-left text-center">
                         <h3 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
                           Rohit Verma
@@ -706,8 +585,8 @@ const cohortReviews = [
                           <span className="bg-[#0a0a0a] px-4 py-2 rounded-full text-gray-300 text-sm">
                             Group Product Manager
                           </span>
-                          <a 
-                            href="https://www.linkedin.com/in/rohitverma141/" 
+                          <a
+                            href="https://www.linkedin.com/in/rohitverma141/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300"
@@ -716,8 +595,8 @@ const cohortReviews = [
                           </a>
                         </div>
                         <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                          Group Product Manager at Angel One with 9+ years in fintech, e-commerce, and travel. 
-                          Expertise in product management, strategy, business growth, and innovation. 
+                          Group Product Manager at Angel One with 9+ years in fintech, e-commerce, and travel.
+                          Expertise in product management, strategy, business growth, and innovation.
                           IIM Bangalore alumnus, passionate about solving complex problems and driving impact.
                         </p>
                         <div className="grid grid-cols-2 gap-6">
@@ -739,97 +618,95 @@ const cohortReviews = [
 
             {/* Enhanced Testimonials section */}
             <section className="py-32 bg-[#0f0f0f] relative overflow-hidden">
-  <div className="container mx-auto px-4 relative">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-16"
-    >
-      <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-        Our Recent Graduates
-      </h2>
-    </motion.div>
+              <div className="container mx-auto px-4 relative">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center mb-16"
+                >
+                  <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                    Our Recent Graduates
+                  </h2>
+                </motion.div>
 
-    <div className="max-w-4xl mx-auto">
-      <div className="relative">
-        {reviews.map((review, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ 
-              opacity: index === activeReview ? 1 : 0,
-              x: index === activeReview ? 0 : 100,
-              scale: index === activeReview ? 1 : 0.95
-            }}
-            transition={{ duration: 0.5 }}
-            className={`flex items-start gap-8 bg-[#0a0a0a] rounded-2xl p-8 border border-gray-800 ${
-              index === activeReview ? '' : 'absolute top-0 left-0 right-0'
-            }`}
-          >
-            <motion.div 
-              className="relative min-w-[120px] h-[120px] rounded-full overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-            >
-              <img
-                src={review.image}
-                alt={review.name}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-            
-            <div className="flex-1">
-              <div className="relative">
-                <div className="absolute -top-4 -left-4 text-6xl text-gray-800 font-serif">"</div>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6 relative z-10">
-                  {review.text}
-                </p>
-              </div>
+                <div className="max-w-4xl mx-auto">
+                  <div className="relative">
+                    {reviews.map((review, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{
+                          opacity: index === activeReview ? 1 : 0,
+                          x: index === activeReview ? 0 : 100,
+                          scale: index === activeReview ? 1 : 0.95
+                        }}
+                        transition={{ duration: 0.5 }}
+                        className={`flex items-start gap-8 bg-[#0a0a0a] rounded-2xl p-8 border border-gray-800 ${index === activeReview ? '' : 'absolute top-0 left-0 right-0'
+                          }`}
+                      >
+                        <motion.div
+                          className="relative min-w-[120px] h-[120px] rounded-full overflow-hidden"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <img
+                            src={review.image}
+                            alt={review.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </motion.div>
 
-              <div className="flex items-center justify-between mt-6">
-                <div>
-                  <h4 className="font-semibold text-white">{review.name}</h4>
-                  <p className="text-sm text-gray-400">{review.college}</p>
-                  <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                    {review.role}
-                  </p>
-                </div>
-                <div className="z-10">
-                  <a
-                    href={review.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors inline-block"
-                  >
-                    <motion.div whileHover={{ scale: 1.1, rotate: 5 }}>
-                      <Linkedin className="w-6 h-6" />
-                    </motion.div>
-                  </a>
+                        <div className="flex-1">
+                          <div className="relative">
+                            <div className="absolute -top-4 -left-4 text-6xl text-gray-800 font-serif">"</div>
+                            <p className="text-lg text-gray-300 leading-relaxed mb-6 relative z-10">
+                              {review.text}
+                            </p>
+                          </div>
+
+                          <div className="flex items-center justify-between mt-6">
+                            <div>
+                              <h4 className="font-semibold text-white">{review.name}</h4>
+                              <p className="text-sm text-gray-400">{review.college}</p>
+                              <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                                {review.role}
+                              </p>
+                            </div>
+                            <div className="z-10">
+                              <a
+                                href={review.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-400 hover:text-white transition-colors inline-block"
+                              >
+                                <motion.div whileHover={{ scale: 1.1, rotate: 5 }}>
+                                  <Linkedin className="w-6 h-6" />
+                                </motion.div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="flex justify-center mt-8 gap-3">
+                    {reviews.map((_, index) => (
+                      <motion.button
+                        key={index}
+                        onClick={() => setActiveReview(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeReview
+                            ? 'bg-purple-600 scale-125'
+                            : 'bg-gray-700 hover:bg-gray-600'
+                          }`}
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-      
-      <div className="flex justify-center mt-8 gap-3">
-        {reviews.map((_, index) => (
-          <motion.button
-            key={index}
-            onClick={() => setActiveReview(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === activeReview
-                ? 'bg-purple-600 scale-125'
-                : 'bg-gray-700 hover:bg-gray-600'
-            }`}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+            </section>
 
             {/* Blog section */}
             <section id="blogs-section" className="py-32 bg-[#0a0a0a] relative overflow-hidden">
@@ -837,18 +714,18 @@ const cohortReviews = [
                 <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
                   Product Management Insights
                 </h2>
-                
+
                 <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                   <div className="bg-[#0f0f0f] rounded-2xl p-8 border border-gray-800 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 group">
                     <h3 className="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition-colors">
                       Thriving Beyond 2025: A Product Manager's Playbook
                     </h3>
                     <p className="text-gray-400 mb-6 line-clamp-3">
-                      Welcome to the wild, wonderful—and sometimes worrisome—world of product management in 2025 and beyond. 
+                      Welcome to the wild, wonderful—and sometimes worrisome—world of product management in 2025 and beyond.
                       If you've been wondering what's next, this guide is for you.
                     </p>
-                    <a 
-                      href="https://medium.com/design-bootcamp/thriving-beyond-2025-a-product-managers-playbook-for-the-new-tech-era-d174a2669959" 
+                    <a
+                      href="https://medium.com/design-bootcamp/thriving-beyond-2025-a-product-managers-playbook-for-the-new-tech-era-d174a2669959"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-purple-400 hover:text-purple-300 font-medium"
@@ -862,11 +739,11 @@ const cohortReviews = [
                       Top 10 AI Agents in 2025
                     </h3>
                     <p className="text-gray-400 mb-6 line-clamp-3">
-                      AI won't replace you, but someone using AI will. Discover the top AI agents that are 
+                      AI won't replace you, but someone using AI will. Discover the top AI agents that are
                       revolutionizing product management and how to leverage them effectively.
                     </p>
-                    <a 
-                      href="https://medium.com/design-bootcamp/top-10-ai-agents-in-2025-db41e98a4a68" 
+                    <a
+                      href="https://medium.com/design-bootcamp/top-10-ai-agents-in-2025-db41e98a4a68"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-purple-400 hover:text-purple-300 font-medium"
@@ -880,11 +757,11 @@ const cohortReviews = [
                       PM Interview Question: Microsoft's AI Integration
                     </h3>
                     <p className="text-gray-400 mb-6 line-clamp-3">
-                      Microsoft has been at the forefront of AI integration, embedding powerful tools like Copilot 
+                      Microsoft has been at the forefront of AI integration, embedding powerful tools like Copilot
                       across its Office suite. Learn how to tackle this common interview question.
                     </p>
-                    <a 
-                      href="https://medium.com/design-bootcamp/pm-interview-question-microsoft-is-expanding-ai-integration-across-its-products-9dfc7751e189" 
+                    <a
+                      href="https://medium.com/design-bootcamp/pm-interview-question-microsoft-is-expanding-ai-integration-across-its-products-9dfc7751e189"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-purple-400 hover:text-purple-300 font-medium"
@@ -895,9 +772,9 @@ const cohortReviews = [
                 </div>
 
                 <div className="flex justify-center mt-16">
-                  <a 
-                    href="https://rohitverma141.medium.com/" 
-                    target="_blank" 
+                  <a
+                    href="https://rohitverma141.medium.com/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-xl font-semibold hover:opacity-90 transition-all transform hover:scale-105 duration-300 inline-flex items-center gap-2"
                   >
@@ -915,9 +792,9 @@ const cohortReviews = [
                     <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
                       Connect With Us
                     </h3>
-                    
+
                     <div className="flex flex-wrap items-center justify-center gap-8">
-                      <a 
+                      <a
                         href="https://www.linkedin.com/company/theproductsprints/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -928,7 +805,7 @@ const cohortReviews = [
                         </div>
                         <span>Follow us on LinkedIn</span>
                       </a>
-                      
+
                       <div className="flex items-center gap-3 text-gray-400">
                         <div className="bg-[#0a0a0a] p-3 rounded-full">
                           <Phone className="w-6 h-6" />
@@ -937,7 +814,7 @@ const cohortReviews = [
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="text-center">
                     <p className="text-gray-500">© 2024 The Product Sprints. All rights reserved.</p>
                   </div>
