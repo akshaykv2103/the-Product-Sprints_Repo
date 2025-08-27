@@ -5,37 +5,48 @@ import { Star, Zap, Briefcase, Linkedin } from 'lucide-react';
 // You can add as many mentors as you want here
 const mentors = [
   {
-    name: "Rohit Verma",
-    image: "/images/rohitfp.png",
-    intro: "Group Product Manager at Angel One with 9+ years in fintech and e-commerce. IIM Bangalore alumnus.",
+    name: "Aditya Gupta",
+    image: "/images/ag.png",
+    intro: "Product Manager @ApnaMart with experience building products at Zomato | IIT Ropar graduate",
     rating: 4.9,
-    reviews: 120,
-    sessions: "500+",
-    experience: "9+ years",
-    linkedin: "https://www.linkedin.com/in/rohitverma141/", // <-- ADDED LINKEDIN
-    formLink: "https://your-google-form-link.com"
+    reviews: 16,
+    sessions: "5+",
+    experience: "2 years",
+    linkedin: "https://www.linkedin.com/in/aditya-gupta-pm/", // <-- ADDED LINKEDIN
+    formLink: "https://forms.gle/3T14YiYRNbE1EnTY7"
   },
   {
-    name: "Vaibhav Chandra",
-    image: "/images/Vaibhav.png",
-    intro: "Growth Manager at PocketFM, specializing in user acquisition and retention. IIT Kanpur alumnus.",
+    name: "Pratibha Anand",
+    image: "/images/pa.png",
+    intro: "Business Analyst at HiLabs, specializing in user acquisition and retention. IIT Kanpur alumnus.",
     rating: 4.8,
-    reviews: 85,
-    sessions: "300+",
-    experience: "5+ years",
-    linkedin: "https://www.linkedin.com/in/vaibhav-chandra7714/", // <-- ADDED LINKEDIN
-    formLink: "https://your-google-form-link.com"
+    reviews: 20,
+    sessions: "8+",
+    experience: "2 years",
+    linkedin: "linkedin.com/in/pratibha-anand-932805210/", // <-- ADDED LINKEDIN
+    formLink: "https://forms.gle/fMbZo6WqCw2nGj9Q9"
   },
   {
-    name: "Ankit Kamra",
-    image: "/images/Ankit.png",
-    intro: "Founder at Covrzy, with deep expertise in insurtech and early-stage startups.",
+    name: "Muskan Goel",
+    image: "/images/mg.png",
+    intro: "Business Analyst at Tata 1mg, with diversified experience in user retention models. IIT Roorkee alumnus.",
     rating: 4.9,
-    reviews: 95,
-    sessions: "400+",
-    experience: "7+ years",
-    linkedin: "https://www.linkedin.com/in/ankit-kamra-90498032/", // <-- ADDED LINKEDIN
-    formLink: "https://your-google-form-link.com"
+    reviews: 25,
+    sessions: "4+",
+    experience: "2 years",
+    linkedin: "https://www.linkedin.com/in/-muskan-goel24/", // <-- ADDED LINKEDIN
+    formLink: "https://forms.gle/fMbZo6WqCw2nGj9Q9"
+  },
+{
+    name: "Afraz Jamal",
+    image: "/images/aj.png",
+    intro: "Senior Strategy Associate at Battery Smart, with experience in scaling products. IIT Kanpur alumnus.",
+    rating: 4.9,
+    reviews: 25,
+    sessions: "4+",
+    experience: "2 years",
+    linkedin: "https://www.linkedin.com/in/afraz-jamal-081018232/", // <-- ADDED LINKEDIN
+    formLink: "https://forms.gle/fMbZo6WqCw2nGj9Q9"
   },
 ];
 
