@@ -131,7 +131,7 @@ function Mentors() {
             Your resume will be reviewed by our mentors with suggestions to make it perfect for product roles, all within 2 hours.
           </p>
           <a
-            href="https://your-resume-review-link.com" // IMPORTANT: Add your resume review link here
+            href="https://forms.gle/sbDXrd6nradokUwm6" // IMPORTANT: Add your resume review link here
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
