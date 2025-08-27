@@ -144,13 +144,18 @@ function App() {
               </a>
               
               {/* --- MODIFIED SECTION START --- */}
-              <div className="glowing-box">
-                <Link
-                  to="/mentors"
-                  className="text-white hover:text-gray-200 transition-colors text-lg font-medium"
-                >
-                  Schedule 1:1 Call
-                </Link>
+              <div className="text-center">
+                <div className="glowing-box">
+                  <Link
+                    to="/mentors"
+                    className="text-white hover:text-gray-200 transition-colors text-lg font-medium"
+                  >
+                    Schedule 1:1 Call
+                  </Link>
+                </div>
+                <p className="text-xs mt-1 font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 animate-gradient">
+                  FREE resume review
+                </p>
               </div>
               {/* --- MODIFIED SECTION END --- */}
 
@@ -192,7 +197,6 @@ function App() {
         <Route path="/mentors" element={<Mentors />} />
         <Route path="/" element={
           <>
-            {/* The rest of your homepage content remains the same... */}
             {/* Hero section */}
             <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
               <video
@@ -617,6 +621,20 @@ function App() {
                       </div>
                     </div>
                   </div>
+                  
+                  {/* --- MODIFIED SECTION START --- */}
+                  <div className="text-center mt-16">
+                    <a
+                      href="https://your-google-form-for-mentors.com" // <-- IMPORTANT: Add your Google Form link here
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:opacity-90 transition-all transform hover:scale-105 duration-300"
+                    >
+                      Become a Mentor
+                    </a>
+                  </div>
+                  {/* --- MODIFIED SECTION END --- */}
+
                 </div>
               </div>
             </section>
