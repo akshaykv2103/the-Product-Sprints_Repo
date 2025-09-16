@@ -83,6 +83,15 @@ const events = [
     image: "/images/session9.png",
     description: "A session by a seasoned entrepreneur, Founder of Covrzy an insuretech company focused on insuring the SMEs",
     attendees: 200
+  },
+{
+    id: 10,
+    title: "Campus to Corporate and Startups: Industry Insights",
+    date: "September 15, 2025",
+    location: "Virtual",
+    image: "/images/session10.jpeg",
+    description: "Insider talk session by Rohit | GPM @AngelOne an IIM B alumnus",
+    attendees: 200
   }
 ];
 
