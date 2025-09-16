@@ -480,7 +480,7 @@ function App() {
                       <p className="text-gray-400 text-lg">4 weeks cohort</p>
                     </div>
                     <div className="bg-[#0a0a0a] p-8 rounded-2xl border border-gray-800">
-                      <h3 className="text-4xl font-bold text-white mb-2">40</h3>
+                      <h3 className="text-4xl font-bold text-white mb-2">30</h3>
                       <p className="text-gray-400 text-lg">Seats Available</p>
                     </div>
                   </div>
@@ -496,7 +496,7 @@ function App() {
                     </a>
 
                     <a
-                      href="https://drive.google.com/file/d/12CM4xfvmEVGfSWQhkYi3zeZ5Gaa_jpJr/view?usp=sharing"
+                      href="https://drive.google.com/file/d/1hIH1ru_-9j1dG6vc0KqIvW-THR9Ww03x/view?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-[#0a0a0a] border border-gray-800 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-[#111111] transition-all transform hover:scale-105 duration-300"
