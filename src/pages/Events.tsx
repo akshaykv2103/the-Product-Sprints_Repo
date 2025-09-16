@@ -86,7 +86,7 @@ const events = [
   },
 {
     id: 10,
-    title: "Campus to Corporate and Startups: Industry Insights",
+    title: "Insider Talk Session | feat. IITJ, BITS Pilani",
     date: "September 15, 2025",
     location: "Virtual",
     image: "/images/session10.jpeg",
