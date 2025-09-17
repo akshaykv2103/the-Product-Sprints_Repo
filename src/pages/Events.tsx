@@ -98,7 +98,7 @@ const events = [
     title: "FREE PM Bootcamp",
     date: "September 20, 2025",
     location: "Virtual",
-    image: "/images/session11.jpeg",
+    image: "/images/session11.png",
     description: "PM Bootcamp by Mansi (PM2 @Microsoft) and Aditya (PM @ApnaMart)",
     attendees: 200
   }
