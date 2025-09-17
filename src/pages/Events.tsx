@@ -92,6 +92,15 @@ const events = [
     image: "/images/session10.jpeg",
     description: "Insider talk session by Rohit | GPM @AngelOne an IIM B alumnus",
     attendees: 200
+  },
+{
+    id: 11,
+    title: "FREE PM Bootcamp",
+    date: "September 20, 2025",
+    location: "Virtual",
+    image: "/images/session11.jpeg",
+    description: "PM Bootcamp by Mansi (PM2 @Microsoft) and Aditya (PM @ApnaMart)",
+    attendees: 200
   }
 ];
 
